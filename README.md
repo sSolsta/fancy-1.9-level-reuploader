@@ -11,7 +11,7 @@ created by ssolsta
 
 ## requirements
 
-this script requires python to run (currently only tested on version 3.8.5, if in doubt [download the latest version](https://www.python.org/) if you can)
+this script requires python to run (currently only tested on version 3.8.5, definitely won't work on versions below 3.7, if in doubt [download the latest version](https://www.python.org/) if you can)
 this script also depends on the following modules:
 
 - [requests](https://docs.python-requests.org/en/master/) (`pip install requests`)
