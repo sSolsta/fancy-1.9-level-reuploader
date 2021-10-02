@@ -36,6 +36,7 @@ def loginOnePointNine(playerID):
     if not response:
         print("Could not log into the specified account, maybe you made a typo.")
         loginOnePointNine(playerID)
+        return
     
     if response.split(",")[1] == playerID:
         print("Successfully logged in")
