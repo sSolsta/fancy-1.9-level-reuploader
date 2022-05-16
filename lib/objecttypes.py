@@ -1,6 +1,6 @@
 '''
 object types
-values in brackets are the actual numeric value used by the game
+values in square brackets are the actual numeric value used by the game
 
 1) - default, do not set layer
 2) - set to b1 [3] if colour is p1, p2 or lbg, otherwise set to b2 [1]
