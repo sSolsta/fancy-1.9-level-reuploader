@@ -2,7 +2,7 @@
 
 transfers your level from 1.9 to 2.1 but with extra stuff if you want it
 
-created by ssolsta
+created by solsta (me)
 
 ## features:
 
