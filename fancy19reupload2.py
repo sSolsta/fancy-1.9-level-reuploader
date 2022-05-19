@@ -95,7 +95,7 @@ def gjLogin(server, playerID = None):
     response["username"] = username
     response["password"] = password
     
-    if playerID and (response["playerID"] not in (playerID, 6273)):
+    if playerID and (response["playerID"] not in (playerID, "6273")):
         print("You must log into the account that uploaded the level")
         return gjLogin(server, playerID = playerID)
     
