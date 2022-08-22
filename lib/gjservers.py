@@ -1,11 +1,12 @@
+import socket
 from urllib import request, parse
-from urllib.error import HTTPError
+from urllib.error import URLError
 
 # shamelessly stolen from zmx
 def postRequest(url, data):
     data = parse.urlencode(data).encode()
     req = request.Request(url, data = data, headers = {"User-Agent": ""})
-    return request.urlopen(req).read().decode()
+    return request.urlopen(req, timeout = 30).read().decode()
 
 DEFAULTS = {
     "gameVersion": 21,
@@ -24,7 +25,7 @@ class Server:
         params = {**DEFAULTS, **params}
         try:
             response = postRequest(url, params)
-        except HTTPError:
+        except (URLError, socket.timeout):
             return
         if failOnNeg:
             try:

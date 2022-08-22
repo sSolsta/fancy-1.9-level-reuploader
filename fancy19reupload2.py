@@ -54,20 +54,20 @@ def askLevel():
     else:
         return askLevel()
 
-def askPosValue(question, func, blankLine = True):
+def askPosValue(question, valuetype, blankLine = True):
     if blankLine:
         print()
     val = input(question)
     if not val:
         return
     try:
-        val = func(val)
+        val = valuetype(val)
     except ValueError:
         print("Invalid Response")
-        return askPosValue(question, func)
+        return askPosValue(question, valuetype)
     if val < 0:
         print("Invalid Response")
-        return askPosValue(question, func)
+        return askPosValue(question, valuetype)
     return val
 
 def gjLogin(server, playerID = None):
@@ -131,23 +131,23 @@ try:
             obj.fixLayer()
         print("Layers fixed")
     
-    if askYNInfo("Fix colour bugs?", "This fixes a 2.1 bug where the colour of xstep wavey platforms doesn't work properly when set to black. It also replicates a 1.9 bug where certain 3D objects always display as white (where they should be obj colour)"):
-        print("Fixing colour bugs...")
+    if askYNInfo("Fix visual bugs?", "This fixes minor visual discrepancies between 1.9 and 2.1, such as some objects having incorrect colours"):
+        print("Fixing visual bugs...")
         level.unpack()
         for obj in level.objects:
-            obj.fixColour()
-        print("Colour bugs fixed")
+            obj.fixVisualBugs()
+        print("Visual bugs fixed")
     
     if askYNInfo("Merge glow dots?", "This finds and replaces glow dots (4 glow corners around a single point) with the 2.1 glow dot object, reducing the object count. May take upwards of 10 seconds on high object levels"):
         level.unpack()
         level.objects = glowdotmerger.theFuckening(level.objects)
     
-    if askYN("Change the song?"):
+    if askYN("Change the song? (Only allows for newgrounds songs and not main level songs)"):
         songID = askPosValue("Enter the song ID (leave blank to cancel): ", int, blankLine = False)
         if songID:
             level.unpack()
             level[35] = songID
-            offset = askPosValue("Enter the offset (leave blank to keep it the same): ", float, blankLine = False)
+            offset = askPosValue(f"Enter the offset (leave blank to keep it as {level.startObj['kA13']}): ", float, blankLine = False)
             if offset is not None:
                 level.startObj["kA13"] = offset
             level.startObj["kA15"] = int(askYN("Fade in?", blankLine = False))
