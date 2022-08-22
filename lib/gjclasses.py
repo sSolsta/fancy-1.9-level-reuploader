@@ -1,7 +1,7 @@
 import math as maths # i am stubborn
 from lib import gjcrypt
 from lib.strdict import StrDict
-from lib.objecttypes import objectTypes
+from lib.objinfo import objInfo
 
 TENSQRTTWO = 10 * maths.sqrt(2)
 
@@ -53,27 +53,33 @@ class GJObject(StrDict):
         return gjcrypt.toKV(self, separator = ",") + ";"
     # layer fixing oh yeah
     def fixLayer(self):
-        objType = objectTypes.get(int(self[1]), 1)
+        try:
+            info = objInfo[self[1]]
+        except KeyError:
+            return
         
-        if objType == 1:
-            pass
-        elif objType in (2, 3):
-            # the specific default colour here does not matter, we only care if it's one of the three or not
-            default = "1" if objType == 3 else "h"
-            layer = 3 if (self.get(19, default) in "125") else 1
-            self[24] = layer
-        elif objType == 4:
-            self[24] = 1
-        elif objType == 5:
-            self[24] = 4
+        col = int(self.get(19, 0))
+        if info["hasColourChild"]:
+            col = 0
+        elif not col or info["hasChildObj"]:
+            col = info["defaultCol"]
+        bottom = (info["z"] < 0)
+        if col not in {1, 2, 5}:
+            bottom |= info["forceBottom"]
+        
+        self[24] = 2 if bottom else 4
+        self[25] = info["z"]
     
-    def fixColour(self):
-        if self[1] in ("62", "66", "65", "68", "63", "64", "294", "295", "296", "297"):
+    def fixVisualBugs(self):
+        if self[1] in {"62", "66", "65", "68", "63", "64", "294", "295", "296", "297"}:
             self[41] = 1
             self[43] = "0a1a0.02a0a1"
         elif 560 <= int(self[1]) <= 577:
             self[41] = 1
             self[43] = "0a0a1a0a1"
+        # disabling glow, no idea if this works
+        if self[1] in {"36", "63", "64", "67", "84", "140", "141"}:
+            self[96] = 1
     # for glow dot merging
     def initGlowCornerValues(self):
         offset = (int(self.get(4, 0)) * 3) ^ int(self.get(5, 0))
