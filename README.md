@@ -21,6 +21,9 @@ created by ssolsta
 ### win64 distribution (windows)
 - a 64-bit version of windows (only tested with windows 10, no guarantee it will work on any earlier versions)
 
+## downloads
+downloads for both distributions can be found [on the github releases page](https://github.com/sSolsta/fancy-1.9-level-reuploader/releases/latest)
+
 ## instructions
 
 1. open `fancy19reupload2.py` via the command line or via your system's file browser
