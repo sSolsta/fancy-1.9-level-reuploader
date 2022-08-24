@@ -15,11 +15,16 @@ created by ssolsta
 
 ## requirements
 
+### python distribution (multi-platform)
 - [python](https://www.python.org/) (only tested with 3.8.10, will probably not work on earlier versions, if in doubt install the latest version)
+
+### win64 distribution (windows)
+- a 64-bit version of windows (only tested with windows 10, no guarantee it will work on any earlier versions)
 
 ## instructions
 
 1. open `fancy19reupload2.py` via the command line or via your system's file browser
+	- `fancy19reupload2.exe` if you are using the win64 distribution
 2. follow the instructions given by the command prompt (you will require the login information of the 1.9 account that the level is on and the 2.1 account that you wish to upload the level to)
 3. yeah that's it
 
@@ -36,8 +41,10 @@ created by ssolsta
 - 22 august 2022 (v2.1):
 	- reworked the layer fixing function to be more true to how layering actually works in 1.9
 	- renamed "colour bug fixing" to "visual bug fixing" and added glow removal to it
+- 24 august 2022:
+	- created win64 executable with pyinstaller
 
-# future plans
+## future plans
 
 - add hitbox fixing
 	- will involve going through and reverse-engineering 2.1 just enough to be able to retrieve 2.1 hitboxes
