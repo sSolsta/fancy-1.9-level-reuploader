@@ -46,9 +46,14 @@ downloads for both distributions can be found [on the github releases page](http
 	- renamed "colour bug fixing" to "visual bug fixing" and added glow removal to it
 - 24 august 2022:
 	- created win64 executable with pyinstaller
+- 25 august 2022 (v2.11):
+	- fixed issue with 3d layering (i was making a comparison where i shouldn't have)
 
 ## future plans
 
+- add optional layer fixing for colour child sprites
+	- will necessarily inflate the object count
+	- will be optional within layer fixing in case you care more about object count than being 100% accurate about a very minor issue
 - add hitbox fixing
 	- will involve going through and reverse-engineering 2.1 just enough to be able to retrieve 2.1 hitboxes
 	- will not attempt to adjust for physics differences
