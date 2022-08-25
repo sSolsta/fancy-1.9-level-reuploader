@@ -12,6 +12,9 @@ to get an object's colour:
 - if the colour is set and the object does not have a childobject, return the set colour
 - otherwise, return the default colour
 note that if the object has a colourchild we ignore the colour and act as if the colour is 0 (not set)
+
+colour children should be 1 z layer below the parent, but in 2.1 they are not. this script does not fix this as of yet, but
+the fix will inflate the object count. dontShow will be used to attempt to mitigate this slightly
 '''
 
 objInfo = {
@@ -21,6 +24,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '2': {
         'defaultCol': 0,
@@ -28,6 +32,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '3': {
         'defaultCol': 0,
@@ -35,6 +40,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '4': {
         'defaultCol': 0,
@@ -42,6 +48,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '5': {
         'defaultCol': 0,
@@ -49,6 +56,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '6': {
         'defaultCol': 0,
@@ -56,6 +64,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '7': {
         'defaultCol': 0,
@@ -63,6 +72,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '8': {
         'defaultCol': 0,
@@ -70,6 +80,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '9': {
         'defaultCol': 0,
@@ -77,6 +88,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '10': {
         'defaultCol': 0,
@@ -84,6 +96,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '11': {
         'defaultCol': 0,
@@ -91,6 +104,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '12': {
         'defaultCol': 0,
@@ -98,6 +112,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '13': {
         'defaultCol': 0,
@@ -105,6 +120,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '15': {
         'defaultCol': 0,
@@ -112,6 +128,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '16': {
         'defaultCol': 0,
@@ -119,6 +136,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '17': {
         'defaultCol': 0,
@@ -126,6 +144,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '18': {
         'defaultCol': 1,
@@ -133,6 +152,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '19': {
         'defaultCol': 1,
@@ -140,6 +160,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '20': {
         'defaultCol': 1,
@@ -147,6 +168,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '21': {
         'defaultCol': 1,
@@ -154,6 +176,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '22': {
         'defaultCol': 0,
@@ -161,6 +184,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '23': {
         'defaultCol': 0,
@@ -168,6 +192,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '24': {
         'defaultCol': 0,
@@ -175,6 +200,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '25': {
         'defaultCol': 0,
@@ -182,6 +208,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '26': {
         'defaultCol': 0,
@@ -189,6 +216,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '27': {
         'defaultCol': 0,
@@ -196,6 +224,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '28': {
         'defaultCol': 0,
@@ -203,6 +232,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '29': {
         'defaultCol': 0,
@@ -210,6 +240,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '30': {
         'defaultCol': 0,
@@ -217,6 +248,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '31': {
         'defaultCol': 0,
@@ -224,6 +256,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '32': {
         'defaultCol': 0,
@@ -231,6 +264,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '33': {
         'defaultCol': 0,
@@ -238,6 +272,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '34': {
         'defaultCol': 0,
@@ -245,6 +280,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '35': {
         'defaultCol': 0,
@@ -252,6 +288,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '36': {
         'defaultCol': 0,
@@ -259,6 +296,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '39': {
         'defaultCol': 0,
@@ -266,6 +304,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '40': {
         'defaultCol': 0,
@@ -273,6 +312,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '41': {
         'defaultCol': 1,
@@ -280,6 +320,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '45': {
         'defaultCol': 0,
@@ -287,6 +328,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '46': {
         'defaultCol': 0,
@@ -294,6 +336,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '47': {
         'defaultCol': 0,
@@ -301,6 +344,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '48': {
         'defaultCol': 2,
@@ -308,6 +352,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '49': {
         'defaultCol': 2,
@@ -315,6 +360,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '50': {
         'defaultCol': 2,
@@ -322,6 +368,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '51': {
         'defaultCol': 2,
@@ -329,6 +376,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '52': {
         'defaultCol': 2,
@@ -336,6 +384,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '53': {
         'defaultCol': 2,
@@ -343,6 +392,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '54': {
         'defaultCol': 2,
@@ -350,6 +400,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '55': {
         'defaultCol': 0,
@@ -357,6 +408,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '56': {
         'defaultCol': 0,
@@ -364,6 +416,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '57': {
         'defaultCol': 0,
@@ -371,6 +424,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '58': {
         'defaultCol': 0,
@@ -378,6 +432,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '59': {
         'defaultCol': 0,
@@ -385,6 +440,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '60': {
         'defaultCol': 2,
@@ -392,6 +448,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '61': {
         'defaultCol': 0,
@@ -399,6 +456,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '62': {
         'defaultCol': 0,
@@ -406,6 +464,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '63': {
         'defaultCol': 0,
@@ -413,6 +472,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '64': {
         'defaultCol': 0,
@@ -420,6 +480,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '65': {
         'defaultCol': 0,
@@ -427,6 +488,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '66': {
         'defaultCol': 0,
@@ -434,6 +496,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '67': {
         'defaultCol': 0,
@@ -441,6 +504,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '68': {
         'defaultCol': 0,
@@ -448,6 +512,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '69': {
         'defaultCol': 0,
@@ -455,6 +520,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '70': {
         'defaultCol': 0,
@@ -462,6 +528,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '71': {
         'defaultCol': 0,
@@ -469,6 +536,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '72': {
         'defaultCol': 0,
@@ -476,6 +544,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '73': {
         'defaultCol': 0,
@@ -483,6 +552,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '74': {
         'defaultCol': 0,
@@ -490,6 +560,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '75': {
         'defaultCol': 0,
@@ -497,6 +568,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '76': {
         'defaultCol': 0,
@@ -504,6 +576,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '77': {
         'defaultCol': 0,
@@ -511,6 +584,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '78': {
         'defaultCol': 0,
@@ -518,6 +592,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '80': {
         'defaultCol': 0,
@@ -525,6 +600,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '81': {
         'defaultCol': 0,
@@ -532,6 +608,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '82': {
         'defaultCol': 0,
@@ -539,6 +616,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '83': {
         'defaultCol': 0,
@@ -546,6 +624,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '84': {
         'defaultCol': 0,
@@ -553,6 +632,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '85': {
         'defaultCol': 1,
@@ -560,6 +640,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '86': {
         'defaultCol': 1,
@@ -567,6 +648,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '87': {
         'defaultCol': 1,
@@ -574,6 +656,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '88': {
         'defaultCol': 0,
@@ -581,6 +664,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '89': {
         'defaultCol': 0,
@@ -588,6 +672,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '90': {
         'defaultCol': 0,
@@ -595,6 +680,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '91': {
         'defaultCol': 0,
@@ -602,6 +688,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '92': {
         'defaultCol': 0,
@@ -609,6 +696,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '93': {
         'defaultCol': 0,
@@ -616,6 +704,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '94': {
         'defaultCol': 0,
@@ -623,6 +712,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '95': {
         'defaultCol': 0,
@@ -630,6 +720,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '96': {
         'defaultCol': 0,
@@ -637,6 +728,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '97': {
         'defaultCol': 1,
@@ -644,6 +736,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '98': {
         'defaultCol': 0,
@@ -651,6 +744,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '99': {
         'defaultCol': 0,
@@ -658,6 +752,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '101': {
         'defaultCol': 0,
@@ -665,6 +760,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '103': {
         'defaultCol': 0,
@@ -672,6 +768,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '104': {
         'defaultCol': 0,
@@ -679,6 +776,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '105': {
         'defaultCol': 0,
@@ -686,6 +784,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '106': {
         'defaultCol': 2,
@@ -693,6 +792,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '107': {
         'defaultCol': 2,
@@ -700,6 +800,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '110': {
         'defaultCol': 1,
@@ -707,6 +808,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '111': {
         'defaultCol': 0,
@@ -714,6 +816,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '113': {
         'defaultCol': 1,
@@ -721,6 +824,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '114': {
         'defaultCol': 1,
@@ -728,6 +832,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '115': {
         'defaultCol': 1,
@@ -735,6 +840,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '116': {
         'defaultCol': 0,
@@ -742,6 +848,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '117': {
         'defaultCol': 0,
@@ -749,6 +856,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '118': {
         'defaultCol': 0,
@@ -756,6 +864,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '119': {
         'defaultCol': 0,
@@ -763,6 +872,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '120': {
         'defaultCol': 0,
@@ -770,6 +880,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '121': {
         'defaultCol': 0,
@@ -777,6 +888,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '122': {
         'defaultCol': 0,
@@ -784,6 +896,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '123': {
         'defaultCol': 1,
@@ -791,6 +904,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '124': {
         'defaultCol': 1,
@@ -798,6 +912,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '125': {
         'defaultCol': 1,
@@ -805,6 +920,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '126': {
         'defaultCol': 1,
@@ -812,6 +928,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '127': {
         'defaultCol': 1,
@@ -819,6 +936,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '128': {
         'defaultCol': 1,
@@ -826,6 +944,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '129': {
         'defaultCol': 1,
@@ -833,6 +952,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '130': {
         'defaultCol': 1,
@@ -840,6 +960,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '131': {
         'defaultCol': 1,
@@ -847,6 +968,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '132': {
         'defaultCol': 2,
@@ -854,6 +976,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '133': {
         'defaultCol': 2,
@@ -861,6 +984,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '134': {
         'defaultCol': 2,
@@ -868,6 +992,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '135': {
         'defaultCol': 0,
@@ -875,6 +1000,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '136': {
         'defaultCol': 2,
@@ -882,6 +1008,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '137': {
         'defaultCol': 2,
@@ -889,6 +1016,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '138': {
         'defaultCol': 2,
@@ -896,6 +1024,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '139': {
         'defaultCol': 2,
@@ -903,6 +1032,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '140': {
         'defaultCol': 0,
@@ -910,6 +1040,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '141': {
         'defaultCol': 0,
@@ -917,6 +1048,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '142': {
         'defaultCol': 0,
@@ -924,6 +1056,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '143': {
         'defaultCol': 0,
@@ -931,6 +1064,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '144': {
         'defaultCol': 0,
@@ -938,6 +1072,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '145': {
         'defaultCol': 0,
@@ -945,6 +1080,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '146': {
         'defaultCol': 0,
@@ -952,6 +1088,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '147': {
         'defaultCol': 0,
@@ -959,6 +1096,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '148': {
         'defaultCol': 2,
@@ -966,6 +1104,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '149': {
         'defaultCol': 2,
@@ -973,6 +1112,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '150': {
         'defaultCol': 2,
@@ -980,6 +1120,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '151': {
         'defaultCol': 1,
@@ -987,6 +1128,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '152': {
         'defaultCol': 1,
@@ -994,6 +1136,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '153': {
         'defaultCol': 1,
@@ -1001,6 +1144,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '154': {
         'defaultCol': 1,
@@ -1008,6 +1152,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '155': {
         'defaultCol': 1,
@@ -1015,6 +1160,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '156': {
         'defaultCol': 1,
@@ -1022,6 +1168,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '157': {
         'defaultCol': 5,
@@ -1029,6 +1176,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '158': {
         'defaultCol': 5,
@@ -1036,6 +1184,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '159': {
         'defaultCol': 5,
@@ -1043,6 +1192,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '160': {
         'defaultCol': 0,
@@ -1050,6 +1200,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '161': {
         'defaultCol': 0,
@@ -1057,6 +1208,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '162': {
         'defaultCol': 0,
@@ -1064,6 +1216,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '163': {
         'defaultCol': 0,
@@ -1071,6 +1224,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '164': {
         'defaultCol': 0,
@@ -1078,6 +1232,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '165': {
         'defaultCol': 0,
@@ -1085,6 +1240,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '166': {
         'defaultCol': 0,
@@ -1092,6 +1248,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '167': {
         'defaultCol': 0,
@@ -1099,6 +1256,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '168': {
         'defaultCol': 0,
@@ -1106,6 +1264,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '169': {
         'defaultCol': 0,
@@ -1113,6 +1272,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '170': {
         'defaultCol': 0,
@@ -1120,6 +1280,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '171': {
         'defaultCol': 0,
@@ -1127,6 +1288,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '172': {
         'defaultCol': 0,
@@ -1134,6 +1296,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '173': {
         'defaultCol': 0,
@@ -1141,6 +1304,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '174': {
         'defaultCol': 0,
@@ -1148,6 +1312,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '175': {
         'defaultCol': 0,
@@ -1155,6 +1320,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '176': {
         'defaultCol': 0,
@@ -1162,6 +1328,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '177': {
         'defaultCol': 0,
@@ -1169,6 +1336,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '178': {
         'defaultCol': 0,
@@ -1176,6 +1344,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '179': {
         'defaultCol': 0,
@@ -1183,6 +1352,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '180': {
         'defaultCol': 2,
@@ -1190,6 +1360,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '181': {
         'defaultCol': 2,
@@ -1197,6 +1368,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '182': {
         'defaultCol': 2,
@@ -1204,6 +1376,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '183': {
         'defaultCol': 0,
@@ -1211,6 +1384,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '184': {
         'defaultCol': 0,
@@ -1218,6 +1392,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '185': {
         'defaultCol': 0,
@@ -1225,6 +1400,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '186': {
         'defaultCol': 0,
@@ -1232,6 +1408,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '187': {
         'defaultCol': 0,
@@ -1239,6 +1416,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '188': {
         'defaultCol': 0,
@@ -1246,6 +1424,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '190': {
         'defaultCol': 2,
@@ -1253,6 +1432,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '191': {
         'defaultCol': 0,
@@ -1260,6 +1440,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '192': {
         'defaultCol': 0,
@@ -1267,6 +1448,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '193': {
         'defaultCol': 0,
@@ -1274,6 +1456,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '194': {
         'defaultCol': 0,
@@ -1281,6 +1464,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '195': {
         'defaultCol': 0,
@@ -1288,6 +1472,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '196': {
         'defaultCol': 0,
@@ -1295,6 +1480,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '197': {
         'defaultCol': 0,
@@ -1302,6 +1488,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '198': {
         'defaultCol': 0,
@@ -1309,6 +1496,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '199': {
         'defaultCol': 0,
@@ -1316,6 +1504,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '200': {
         'defaultCol': 0,
@@ -1323,6 +1512,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '201': {
         'defaultCol': 0,
@@ -1330,6 +1520,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '202': {
         'defaultCol': 0,
@@ -1337,6 +1528,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '203': {
         'defaultCol': 0,
@@ -1344,6 +1536,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '204': {
         'defaultCol': 0,
@@ -1351,6 +1544,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '205': {
         'defaultCol': 0,
@@ -1358,6 +1552,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '206': {
         'defaultCol': 0,
@@ -1365,6 +1560,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '207': {
         'defaultCol': 3,
@@ -1372,6 +1568,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '208': {
         'defaultCol': 3,
@@ -1379,6 +1576,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '209': {
         'defaultCol': 3,
@@ -1386,6 +1584,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '210': {
         'defaultCol': 3,
@@ -1393,6 +1592,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '211': {
         'defaultCol': 3,
@@ -1400,6 +1600,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': True,
         },
     '212': {
         'defaultCol': 3,
@@ -1407,6 +1608,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '213': {
         'defaultCol': 3,
@@ -1414,6 +1616,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '215': {
         'defaultCol': 3,
@@ -1421,6 +1624,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '216': {
         'defaultCol': 3,
@@ -1428,6 +1632,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '217': {
         'defaultCol': 3,
@@ -1435,6 +1640,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '218': {
         'defaultCol': 3,
@@ -1442,6 +1648,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '219': {
         'defaultCol': 3,
@@ -1449,6 +1656,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '220': {
         'defaultCol': 3,
@@ -1456,6 +1664,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '221': {
         'defaultCol': 0,
@@ -1463,6 +1672,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '222': {
         'defaultCol': 1,
@@ -1470,6 +1680,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '223': {
         'defaultCol': 1,
@@ -1477,6 +1688,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '224': {
         'defaultCol': 1,
@@ -1484,6 +1696,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '225': {
         'defaultCol': 2,
@@ -1491,6 +1704,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '226': {
         'defaultCol': 2,
@@ -1498,6 +1712,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '227': {
         'defaultCol': 5,
@@ -1505,6 +1720,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '228': {
         'defaultCol': 5,
@@ -1512,6 +1728,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '229': {
         'defaultCol': 5,
@@ -1519,6 +1736,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '230': {
         'defaultCol': 5,
@@ -1526,6 +1744,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '231': {
         'defaultCol': 5,
@@ -1533,6 +1752,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '232': {
         'defaultCol': 5,
@@ -1540,6 +1760,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '233': {
         'defaultCol': 5,
@@ -1547,6 +1768,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '234': {
         'defaultCol': 5,
@@ -1554,6 +1776,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '235': {
         'defaultCol': 5,
@@ -1561,6 +1784,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '236': {
         'defaultCol': 2,
@@ -1568,6 +1792,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '237': {
         'defaultCol': 1,
@@ -1575,6 +1800,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '238': {
         'defaultCol': 1,
@@ -1582,6 +1808,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '239': {
         'defaultCol': 1,
@@ -1589,6 +1816,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '240': {
         'defaultCol': 1,
@@ -1596,6 +1824,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '241': {
         'defaultCol': 1,
@@ -1603,6 +1832,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '242': {
         'defaultCol': 5,
@@ -1610,6 +1840,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '243': {
         'defaultCol': 0,
@@ -1617,6 +1848,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '244': {
         'defaultCol': 0,
@@ -1624,6 +1856,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '245': {
         'defaultCol': 0,
@@ -1631,6 +1864,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '246': {
         'defaultCol': 0,
@@ -1638,6 +1872,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '247': {
         'defaultCol': 3,
@@ -1645,6 +1880,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '248': {
         'defaultCol': 3,
@@ -1652,6 +1888,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '249': {
         'defaultCol': 3,
@@ -1659,6 +1896,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '250': {
         'defaultCol': 3,
@@ -1666,6 +1904,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '251': {
         'defaultCol': 3,
@@ -1673,6 +1912,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': True,
         },
     '252': {
         'defaultCol': 3,
@@ -1680,6 +1920,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '253': {
         'defaultCol': 3,
@@ -1687,6 +1928,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '254': {
         'defaultCol': 3,
@@ -1694,6 +1936,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '255': {
         'defaultCol': 3,
@@ -1701,6 +1944,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '256': {
         'defaultCol': 3,
@@ -1708,6 +1952,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '257': {
         'defaultCol': 3,
@@ -1715,6 +1960,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '258': {
         'defaultCol': 3,
@@ -1722,6 +1968,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '259': {
         'defaultCol': 3,
@@ -1729,6 +1976,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': True,
         },
     '260': {
         'defaultCol': 3,
@@ -1736,6 +1984,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '261': {
         'defaultCol': 3,
@@ -1743,6 +1992,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '263': {
         'defaultCol': 3,
@@ -1750,6 +2000,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '264': {
         'defaultCol': 3,
@@ -1757,6 +2008,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '265': {
         'defaultCol': 3,
@@ -1764,6 +2016,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '266': {
         'defaultCol': 3,
@@ -1771,6 +2024,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': True,
         },
     '267': {
         'defaultCol': 3,
@@ -1778,6 +2032,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '268': {
         'defaultCol': 3,
@@ -1785,6 +2040,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '269': {
         'defaultCol': 3,
@@ -1792,6 +2048,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '270': {
         'defaultCol': 3,
@@ -1799,6 +2056,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '271': {
         'defaultCol': 3,
@@ -1806,6 +2064,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '272': {
         'defaultCol': 3,
@@ -1813,6 +2072,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '273': {
         'defaultCol': 3,
@@ -1820,6 +2080,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': True,
         },
     '274': {
         'defaultCol': 3,
@@ -1827,6 +2088,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '275': {
         'defaultCol': 3,
@@ -1834,6 +2096,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '277': {
         'defaultCol': 3,
@@ -1841,6 +2104,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '278': {
         'defaultCol': 3,
@@ -1848,6 +2112,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '279': {
         'defaultCol': 5,
@@ -1855,6 +2120,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '280': {
         'defaultCol': 5,
@@ -1862,6 +2128,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '281': {
         'defaultCol': 5,
@@ -1869,6 +2136,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '282': {
         'defaultCol': 5,
@@ -1876,6 +2144,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '283': {
         'defaultCol': 5,
@@ -1883,6 +2152,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '284': {
         'defaultCol': 5,
@@ -1890,6 +2160,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '285': {
         'defaultCol': 5,
@@ -1897,6 +2168,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '286': {
         'defaultCol': 0,
@@ -1904,6 +2176,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '287': {
         'defaultCol': 0,
@@ -1911,6 +2184,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '289': {
         'defaultCol': 0,
@@ -1918,6 +2192,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '291': {
         'defaultCol': 0,
@@ -1925,6 +2200,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '294': {
         'defaultCol': 0,
@@ -1932,6 +2208,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '295': {
         'defaultCol': 0,
@@ -1939,6 +2216,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '296': {
         'defaultCol': 0,
@@ -1946,6 +2224,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '297': {
         'defaultCol': 0,
@@ -1953,6 +2232,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '299': {
         'defaultCol': 0,
@@ -1960,6 +2240,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '301': {
         'defaultCol': 0,
@@ -1967,6 +2248,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '305': {
         'defaultCol': 0,
@@ -1974,6 +2256,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '307': {
         'defaultCol': 0,
@@ -1981,6 +2264,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '309': {
         'defaultCol': 0,
@@ -1988,6 +2272,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '311': {
         'defaultCol': 0,
@@ -1995,6 +2280,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '315': {
         'defaultCol': 0,
@@ -2002,6 +2288,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '317': {
         'defaultCol': 0,
@@ -2009,6 +2296,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '321': {
         'defaultCol': 0,
@@ -2016,6 +2304,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '323': {
         'defaultCol': 0,
@@ -2023,6 +2312,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '324': {
         'defaultCol': 0,
@@ -2030,6 +2320,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '325': {
         'defaultCol': 0,
@@ -2037,6 +2328,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '326': {
         'defaultCol': 0,
@@ -2044,6 +2336,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '327': {
         'defaultCol': 0,
@@ -2051,6 +2344,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '328': {
         'defaultCol': 0,
@@ -2058,6 +2352,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '329': {
         'defaultCol': 0,
@@ -2065,6 +2360,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '331': {
         'defaultCol': 3,
@@ -2072,6 +2368,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '333': {
         'defaultCol': 3,
@@ -2079,6 +2376,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '337': {
         'defaultCol': 3,
@@ -2086,6 +2384,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '339': {
         'defaultCol': 3,
@@ -2093,6 +2392,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '343': {
         'defaultCol': 3,
@@ -2100,6 +2400,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '345': {
         'defaultCol': 3,
@@ -2107,6 +2408,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '349': {
         'defaultCol': 3,
@@ -2114,6 +2416,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '351': {
         'defaultCol': 3,
@@ -2121,6 +2424,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '353': {
         'defaultCol': 3,
@@ -2128,6 +2432,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '355': {
         'defaultCol': 3,
@@ -2135,6 +2440,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '358': {
         'defaultCol': 0,
@@ -2142,6 +2448,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '363': {
         'defaultCol': 0,
@@ -2149,6 +2456,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '364': {
         'defaultCol': 0,
@@ -2156,6 +2464,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '365': {
         'defaultCol': 0,
@@ -2163,6 +2472,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '366': {
         'defaultCol': 0,
@@ -2170,6 +2480,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '367': {
         'defaultCol': 0,
@@ -2177,6 +2488,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '368': {
         'defaultCol': 0,
@@ -2184,6 +2496,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '369': {
         'defaultCol': 0,
@@ -2191,6 +2504,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '370': {
         'defaultCol': 0,
@@ -2198,6 +2512,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '371': {
         'defaultCol': 0,
@@ -2205,6 +2520,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '372': {
         'defaultCol': 0,
@@ -2212,6 +2528,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '373': {
         'defaultCol': 0,
@@ -2219,6 +2536,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '374': {
         'defaultCol': 0,
@@ -2226,6 +2544,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '375': {
         'defaultCol': 1,
@@ -2233,6 +2552,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '376': {
         'defaultCol': 2,
@@ -2240,6 +2560,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '377': {
         'defaultCol': 1,
@@ -2247,6 +2568,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '378': {
         'defaultCol': 2,
@@ -2254,6 +2576,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '392': {
         'defaultCol': 0,
@@ -2261,6 +2584,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '393': {
         'defaultCol': 0,
@@ -2268,6 +2592,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '394': {
         'defaultCol': 1,
@@ -2275,6 +2600,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '395': {
         'defaultCol': 1,
@@ -2282,6 +2608,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '396': {
         'defaultCol': 1,
@@ -2289,6 +2616,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '397': {
         'defaultCol': 3,
@@ -2296,6 +2624,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '398': {
         'defaultCol': 3,
@@ -2303,6 +2632,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '399': {
         'defaultCol': 3,
@@ -2310,6 +2640,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '405': {
         'defaultCol': 2,
@@ -2317,6 +2648,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '406': {
         'defaultCol': 5,
@@ -2324,6 +2656,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '407': {
         'defaultCol': 5,
@@ -2331,6 +2664,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '408': {
         'defaultCol': 5,
@@ -2338,6 +2672,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '409': {
         'defaultCol': 5,
@@ -2345,6 +2680,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '410': {
         'defaultCol': 5,
@@ -2352,6 +2688,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '411': {
         'defaultCol': 5,
@@ -2359,6 +2696,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '412': {
         'defaultCol': 5,
@@ -2366,6 +2704,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '413': {
         'defaultCol': 5,
@@ -2373,6 +2712,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '419': {
         'defaultCol': 5,
@@ -2380,6 +2720,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '420': {
         'defaultCol': 5,
@@ -2387,6 +2728,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '421': {
         'defaultCol': 0,
@@ -2394,6 +2736,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '422': {
         'defaultCol': 0,
@@ -2401,6 +2744,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '446': {
         'defaultCol': 0,
@@ -2408,6 +2752,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '447': {
         'defaultCol': 0,
@@ -2415,6 +2760,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '448': {
         'defaultCol': 5,
@@ -2422,6 +2768,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '449': {
         'defaultCol': 5,
@@ -2429,6 +2776,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '450': {
         'defaultCol': 1,
@@ -2436,6 +2784,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '451': {
         'defaultCol': 1,
@@ -2443,6 +2792,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '452': {
         'defaultCol': 1,
@@ -2450,6 +2800,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '453': {
         'defaultCol': 3,
@@ -2457,6 +2808,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '454': {
         'defaultCol': 3,
@@ -2464,6 +2816,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '455': {
         'defaultCol': 3,
@@ -2471,6 +2824,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '456': {
         'defaultCol': 3,
@@ -2478,6 +2832,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '457': {
         'defaultCol': 3,
@@ -2485,6 +2840,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '458': {
         'defaultCol': 3,
@@ -2492,6 +2848,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '459': {
         'defaultCol': 0,
@@ -2499,6 +2856,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '460': {
         'defaultCol': 2,
@@ -2506,6 +2864,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '461': {
         'defaultCol': 3,
@@ -2513,6 +2872,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '462': {
         'defaultCol': 3,
@@ -2520,6 +2880,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '463': {
         'defaultCol': 3,
@@ -2527,6 +2888,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '464': {
         'defaultCol': 3,
@@ -2534,6 +2896,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '465': {
         'defaultCol': 3,
@@ -2541,6 +2904,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '466': {
         'defaultCol': 3,
@@ -2548,6 +2912,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '467': {
         'defaultCol': 0,
@@ -2555,6 +2920,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '468': {
         'defaultCol': 0,
@@ -2562,6 +2928,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '469': {
         'defaultCol': 0,
@@ -2569,6 +2936,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '470': {
         'defaultCol': 0,
@@ -2576,6 +2944,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '471': {
         'defaultCol': 0,
@@ -2583,6 +2952,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '472': {
         'defaultCol': 0,
@@ -2590,6 +2960,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '473': {
         'defaultCol': 0,
@@ -2597,6 +2968,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '474': {
         'defaultCol': 0,
@@ -2604,6 +2976,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '475': {
         'defaultCol': 0,
@@ -2611,6 +2984,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '476': {
         'defaultCol': 0,
@@ -2618,6 +2992,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '477': {
         'defaultCol': 3,
@@ -2625,6 +3000,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '478': {
         'defaultCol': 3,
@@ -2632,6 +3008,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '479': {
         'defaultCol': 3,
@@ -2639,6 +3016,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '480': {
         'defaultCol': 3,
@@ -2646,6 +3024,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '481': {
         'defaultCol': 3,
@@ -2653,6 +3032,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '482': {
         'defaultCol': 3,
@@ -2660,6 +3040,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '483': {
         'defaultCol': 3,
@@ -2667,6 +3048,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '484': {
         'defaultCol': 3,
@@ -2674,6 +3056,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '485': {
         'defaultCol': 3,
@@ -2681,6 +3064,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '486': {
         'defaultCol': 3,
@@ -2688,6 +3072,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '487': {
         'defaultCol': 3,
@@ -2695,6 +3080,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '488': {
         'defaultCol': 3,
@@ -2702,6 +3088,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '489': {
         'defaultCol': 3,
@@ -2709,6 +3096,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '490': {
         'defaultCol': 3,
@@ -2716,6 +3104,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '491': {
         'defaultCol': 3,
@@ -2723,6 +3112,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '492': {
         'defaultCol': 3,
@@ -2730,6 +3120,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '493': {
         'defaultCol': 3,
@@ -2737,6 +3128,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '494': {
         'defaultCol': 1,
@@ -2744,6 +3136,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '495': {
         'defaultCol': 2,
@@ -2751,6 +3144,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '496': {
         'defaultCol': 1,
@@ -2758,6 +3152,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '497': {
         'defaultCol': 1,
@@ -2765,34 +3160,39 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '498': {
-        'defaultCol': 1,
+        'defaultCol': 3,
         'z': 9,
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '499': {
-        'defaultCol': 1,
+        'defaultCol': 3,
         'z': 9,
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '500': {
-        'defaultCol': 1,
+        'defaultCol': 3,
         'z': 9,
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '501': {
-        'defaultCol': 1,
+        'defaultCol': 3,
         'z': 9,
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '502': {
         'defaultCol': 0,
@@ -2800,6 +3200,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '503': {
         'defaultCol': 3,
@@ -2807,6 +3208,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '504': {
         'defaultCol': 3,
@@ -2814,6 +3216,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '505': {
         'defaultCol': 3,
@@ -2821,6 +3224,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '506': {
         'defaultCol': 8,
@@ -2828,6 +3232,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '507': {
         'defaultCol': 8,
@@ -2835,6 +3240,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '508': {
         'defaultCol': 8,
@@ -2842,6 +3248,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '509': {
         'defaultCol': 8,
@@ -2849,6 +3256,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '510': {
         'defaultCol': 8,
@@ -2856,6 +3264,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '511': {
         'defaultCol': 8,
@@ -2863,6 +3272,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '512': {
         'defaultCol': 8,
@@ -2870,6 +3280,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '513': {
         'defaultCol': 8,
@@ -2877,6 +3288,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '514': {
         'defaultCol': 8,
@@ -2884,6 +3296,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '515': {
         'defaultCol': 0,
@@ -2891,6 +3304,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '516': {
         'defaultCol': 0,
@@ -2898,6 +3312,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '517': {
         'defaultCol': 0,
@@ -2905,6 +3320,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '518': {
         'defaultCol': 0,
@@ -2912,6 +3328,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '519': {
         'defaultCol': 0,
@@ -2919,6 +3336,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '520': {
         'defaultCol': 0,
@@ -2926,6 +3344,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '521': {
         'defaultCol': 0,
@@ -2933,6 +3352,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '522': {
         'defaultCol': 0,
@@ -2940,6 +3360,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '523': {
         'defaultCol': 0,
@@ -2947,6 +3368,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '524': {
         'defaultCol': 0,
@@ -2954,6 +3376,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '525': {
         'defaultCol': 0,
@@ -2961,6 +3384,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '526': {
         'defaultCol': 0,
@@ -2968,6 +3392,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '527': {
         'defaultCol': 0,
@@ -2975,6 +3400,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '528': {
         'defaultCol': 0,
@@ -2982,6 +3408,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '529': {
         'defaultCol': 0,
@@ -2989,6 +3416,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '530': {
         'defaultCol': 0,
@@ -2996,6 +3424,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '531': {
         'defaultCol': 0,
@@ -3003,6 +3432,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '532': {
         'defaultCol': 0,
@@ -3010,6 +3440,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '533': {
         'defaultCol': 0,
@@ -3017,6 +3448,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '534': {
         'defaultCol': 0,
@@ -3024,6 +3456,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '535': {
         'defaultCol': 0,
@@ -3031,6 +3464,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '536': {
         'defaultCol': 0,
@@ -3038,6 +3472,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '537': {
         'defaultCol': 0,
@@ -3045,6 +3480,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '538': {
         'defaultCol': 0,
@@ -3052,6 +3488,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '539': {
         'defaultCol': 0,
@@ -3059,6 +3496,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '540': {
         'defaultCol': 0,
@@ -3066,6 +3504,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '541': {
         'defaultCol': 0,
@@ -3073,6 +3512,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '542': {
         'defaultCol': 0,
@@ -3080,6 +3520,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '543': {
         'defaultCol': 0,
@@ -3087,6 +3528,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '544': {
         'defaultCol': 0,
@@ -3094,6 +3536,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '545': {
         'defaultCol': 0,
@@ -3101,6 +3544,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '546': {
         'defaultCol': 0,
@@ -3108,6 +3552,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '547': {
         'defaultCol': 0,
@@ -3115,6 +3560,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '548': {
         'defaultCol': 0,
@@ -3122,6 +3568,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '549': {
         'defaultCol': 0,
@@ -3129,6 +3576,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '550': {
         'defaultCol': 0,
@@ -3136,6 +3584,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '551': {
         'defaultCol': 0,
@@ -3143,6 +3592,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '552': {
         'defaultCol': 0,
@@ -3150,6 +3600,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '553': {
         'defaultCol': 0,
@@ -3157,6 +3608,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '554': {
         'defaultCol': 0,
@@ -3164,6 +3616,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '555': {
         'defaultCol': 0,
@@ -3171,6 +3624,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '556': {
         'defaultCol': 0,
@@ -3178,6 +3632,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '557': {
         'defaultCol': 0,
@@ -3185,6 +3640,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '558': {
         'defaultCol': 0,
@@ -3192,6 +3648,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '559': {
         'defaultCol': 0,
@@ -3199,6 +3656,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '560': {
         'defaultCol': 0,
@@ -3206,6 +3664,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '561': {
         'defaultCol': 0,
@@ -3213,6 +3672,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '562': {
         'defaultCol': 0,
@@ -3220,6 +3680,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '563': {
         'defaultCol': 0,
@@ -3227,6 +3688,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '564': {
         'defaultCol': 0,
@@ -3234,6 +3696,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '565': {
         'defaultCol': 0,
@@ -3241,6 +3704,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '566': {
         'defaultCol': 0,
@@ -3248,6 +3712,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '567': {
         'defaultCol': 0,
@@ -3255,6 +3720,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '568': {
         'defaultCol': 0,
@@ -3262,6 +3728,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '569': {
         'defaultCol': 0,
@@ -3269,6 +3736,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '570': {
         'defaultCol': 0,
@@ -3276,6 +3744,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '571': {
         'defaultCol': 0,
@@ -3283,6 +3752,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '572': {
         'defaultCol': 0,
@@ -3290,6 +3760,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '573': {
         'defaultCol': 0,
@@ -3297,6 +3768,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '574': {
         'defaultCol': 0,
@@ -3304,6 +3776,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '575': {
         'defaultCol': 0,
@@ -3311,6 +3784,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '576': {
         'defaultCol': 0,
@@ -3318,6 +3792,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '577': {
         'defaultCol': 0,
@@ -3325,321 +3800,367 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '578': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '579': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '580': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '581': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '582': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '583': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '584': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '585': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '586': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '587': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '588': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '589': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '590': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '591': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '592': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '593': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '594': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '595': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '596': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '597': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '598': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '599': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '600': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '601': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '602': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '603': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '604': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '605': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '606': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '607': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '608': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '609': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '610': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '611': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '612': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '613': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '614': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '615': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '616': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '617': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '618': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '619': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '620': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '621': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '622': {
         'defaultCol': 6,
-        'z': -6,
+        'z': -7,
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '623': {
         'defaultCol': 0,
@@ -3647,6 +4168,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '624': {
         'defaultCol': 0,
@@ -3654,6 +4176,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '625': {
         'defaultCol': 0,
@@ -3661,6 +4184,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '626': {
         'defaultCol': 0,
@@ -3668,6 +4192,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '627': {
         'defaultCol': 0,
@@ -3675,6 +4200,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '628': {
         'defaultCol': 0,
@@ -3682,6 +4208,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '629': {
         'defaultCol': 0,
@@ -3689,6 +4216,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '630': {
         'defaultCol': 0,
@@ -3696,6 +4224,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '631': {
         'defaultCol': 0,
@@ -3703,6 +4232,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '632': {
         'defaultCol': 0,
@@ -3710,6 +4240,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '633': {
         'defaultCol': 0,
@@ -3717,6 +4248,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '634': {
         'defaultCol': 0,
@@ -3724,6 +4256,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '635': {
         'defaultCol': 0,
@@ -3731,6 +4264,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '636': {
         'defaultCol': 0,
@@ -3738,6 +4272,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '637': {
         'defaultCol': 0,
@@ -3745,6 +4280,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '638': {
         'defaultCol': 0,
@@ -3752,6 +4288,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '639': {
         'defaultCol': 0,
@@ -3759,6 +4296,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '640': {
         'defaultCol': 0,
@@ -3766,6 +4304,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '641': {
         'defaultCol': 3,
@@ -3773,6 +4312,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '642': {
         'defaultCol': 3,
@@ -3780,6 +4320,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '643': {
         'defaultCol': 3,
@@ -3787,6 +4328,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '644': {
         'defaultCol': 3,
@@ -3794,6 +4336,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '645': {
         'defaultCol': 3,
@@ -3801,6 +4344,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '646': {
         'defaultCol': 3,
@@ -3808,6 +4352,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '647': {
         'defaultCol': 3,
@@ -3815,6 +4360,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '648': {
         'defaultCol': 3,
@@ -3822,6 +4368,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '649': {
         'defaultCol': 3,
@@ -3829,6 +4376,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '650': {
         'defaultCol': 0,
@@ -3836,6 +4384,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '651': {
         'defaultCol': 3,
@@ -3843,6 +4392,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '652': {
         'defaultCol': 3,
@@ -3850,6 +4400,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '653': {
         'defaultCol': 0,
@@ -3857,6 +4408,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '654': {
         'defaultCol': 0,
@@ -3864,6 +4416,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '655': {
         'defaultCol': 0,
@@ -3871,6 +4424,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '656': {
         'defaultCol': 0,
@@ -3878,6 +4432,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '657': {
         'defaultCol': 0,
@@ -3885,6 +4440,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '658': {
         'defaultCol': 0,
@@ -3892,6 +4448,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '659': {
         'defaultCol': 0,
@@ -3899,6 +4456,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '660': {
         'defaultCol': 0,
@@ -3906,6 +4464,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': True,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '661': {
         'defaultCol': 0,
@@ -3913,6 +4472,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '662': {
         'defaultCol': 0,
@@ -3920,6 +4480,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '663': {
         'defaultCol': 0,
@@ -3927,6 +4488,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '664': {
         'defaultCol': 0,
@@ -3934,6 +4496,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '665': {
         'defaultCol': 0,
@@ -3941,6 +4504,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '666': {
         'defaultCol': 0,
@@ -3948,6 +4512,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '667': {
         'defaultCol': 0,
@@ -3955,6 +4520,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '668': {
         'defaultCol': 0,
@@ -3962,6 +4528,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '669': {
         'defaultCol': 0,
@@ -3969,6 +4536,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '670': {
         'defaultCol': 0,
@@ -3976,6 +4544,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '671': {
         'defaultCol': 0,
@@ -3983,6 +4552,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '672': {
         'defaultCol': 0,
@@ -3990,6 +4560,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '673': {
         'defaultCol': 0,
@@ -3997,6 +4568,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '674': {
         'defaultCol': 0,
@@ -4004,6 +4576,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '675': {
         'defaultCol': 0,
@@ -4011,6 +4584,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '676': {
         'defaultCol': 0,
@@ -4018,6 +4592,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '677': {
         'defaultCol': 0,
@@ -4025,6 +4600,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '678': {
         'defaultCol': 3,
@@ -4032,6 +4608,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '679': {
         'defaultCol': 3,
@@ -4039,6 +4616,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '680': {
         'defaultCol': 3,
@@ -4046,6 +4624,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '681': {
         'defaultCol': 0,
@@ -4053,6 +4632,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '682': {
         'defaultCol': 0,
@@ -4060,6 +4640,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '683': {
         'defaultCol': 0,
@@ -4067,6 +4648,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '684': {
         'defaultCol': 0,
@@ -4074,6 +4656,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '685': {
         'defaultCol': 0,
@@ -4081,6 +4664,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '686': {
         'defaultCol': 0,
@@ -4088,6 +4672,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '687': {
         'defaultCol': 0,
@@ -4095,6 +4680,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '688': {
         'defaultCol': 0,
@@ -4102,6 +4688,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '689': {
         'defaultCol': 0,
@@ -4109,6 +4696,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '690': {
         'defaultCol': 0,
@@ -4116,6 +4704,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '691': {
         'defaultCol': 0,
@@ -4123,6 +4712,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '692': {
         'defaultCol': 0,
@@ -4130,6 +4720,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '693': {
         'defaultCol': 3,
@@ -4137,6 +4728,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '694': {
         'defaultCol': 3,
@@ -4144,6 +4736,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '695': {
         'defaultCol': 3,
@@ -4151,6 +4744,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '696': {
         'defaultCol': 3,
@@ -4158,6 +4752,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '697': {
         'defaultCol': 3,
@@ -4165,6 +4760,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '698': {
         'defaultCol': 3,
@@ -4172,6 +4768,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '699': {
         'defaultCol': 3,
@@ -4179,6 +4776,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '700': {
         'defaultCol': 3,
@@ -4186,6 +4784,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '701': {
         'defaultCol': 3,
@@ -4193,6 +4792,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '702': {
         'defaultCol': 3,
@@ -4200,6 +4800,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '703': {
         'defaultCol': 3,
@@ -4207,6 +4808,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '704': {
         'defaultCol': 3,
@@ -4214,6 +4816,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '705': {
         'defaultCol': 3,
@@ -4221,6 +4824,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '706': {
         'defaultCol': 3,
@@ -4228,6 +4832,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '707': {
         'defaultCol': 3,
@@ -4235,6 +4840,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '708': {
         'defaultCol': 3,
@@ -4242,6 +4848,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '709': {
         'defaultCol': 0,
@@ -4249,6 +4856,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '710': {
         'defaultCol': 0,
@@ -4256,6 +4864,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '711': {
         'defaultCol': 0,
@@ -4263,6 +4872,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '712': {
         'defaultCol': 0,
@@ -4270,6 +4880,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '713': {
         'defaultCol': 0,
@@ -4277,6 +4888,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '714': {
         'defaultCol': 0,
@@ -4284,6 +4896,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '715': {
         'defaultCol': 0,
@@ -4291,6 +4904,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '716': {
         'defaultCol': 0,
@@ -4298,6 +4912,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '717': {
         'defaultCol': 0,
@@ -4305,6 +4920,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '718': {
         'defaultCol': 0,
@@ -4312,6 +4928,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '719': {
         'defaultCol': 3,
@@ -4319,6 +4936,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '720': {
         'defaultCol': 0,
@@ -4326,6 +4944,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '721': {
         'defaultCol': 3,
@@ -4333,6 +4952,7 @@ objInfo = {
         'forceBottom': True,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '722': {
         'defaultCol': 0,
@@ -4340,6 +4960,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '723': {
         'defaultCol': 0,
@@ -4347,6 +4968,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '724': {
         'defaultCol': 0,
@@ -4354,6 +4976,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '725': {
         'defaultCol': 3,
@@ -4361,6 +4984,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '726': {
         'defaultCol': 0,
@@ -4368,6 +4992,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '727': {
         'defaultCol': 0,
@@ -4375,6 +5000,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '728': {
         'defaultCol': 0,
@@ -4382,6 +5008,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '729': {
         'defaultCol': 0,
@@ -4389,6 +5016,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '730': {
         'defaultCol': 0,
@@ -4396,6 +5024,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '731': {
         'defaultCol': 0,
@@ -4403,6 +5032,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '732': {
         'defaultCol': 0,
@@ -4410,6 +5040,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '733': {
         'defaultCol': 0,
@@ -4417,6 +5048,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '734': {
         'defaultCol': 0,
@@ -4424,6 +5056,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '735': {
         'defaultCol': 0,
@@ -4431,6 +5064,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '736': {
         'defaultCol': 0,
@@ -4438,6 +5072,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '737': {
         'defaultCol': 0,
@@ -4445,6 +5080,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '738': {
         'defaultCol': 0,
@@ -4452,6 +5088,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '739': {
         'defaultCol': 3,
@@ -4459,6 +5096,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': True,
+        'dontShow': False,
         },
     '740': {
         'defaultCol': 0,
@@ -4466,6 +5104,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '741': {
         'defaultCol': 0,
@@ -4473,6 +5112,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '742': {
         'defaultCol': 0,
@@ -4480,6 +5120,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '743': {
         'defaultCol': 0,
@@ -4487,6 +5128,7 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
         },
     '744': {
         'defaultCol': 0,
@@ -4494,5 +5136,22 @@ objInfo = {
         'forceBottom': False,
         'hasChildObj': False,
         'hasColourChild': False,
+        'dontShow': False,
+        },
+    '37': {
+        'defaultCol': 1,
+        'z': 10,
+        'forceBottom': True,
+        'hasChildObj': False,
+        'hasColourChild': False,
+        'dontShow': False,
+        },
+    '38': {
+        'defaultCol': 0,
+        'z': 2,
+        'forceBottom': False,
+        'hasChildObj': False,
+        'hasColourChild': False,
+        'dontShow': False,
         },
     }
