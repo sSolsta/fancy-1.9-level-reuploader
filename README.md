@@ -51,9 +51,6 @@ downloads for both distributions can be found [on the github releases page](http
 
 ## future plans
 
-- add optional layer fixing for colour child sprites
-	- will necessarily inflate the object count
-	- will be optional within layer fixing in case you care more about object count than being 100% accurate about a very minor issue
 - add hitbox fixing
 	- will involve going through and reverse-engineering 2.1 just enough to be able to retrieve 2.1 hitboxes
 	- will not attempt to adjust for physics differences
