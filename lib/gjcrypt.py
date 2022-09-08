@@ -10,7 +10,7 @@ import itertools
 import zlib
 import gzip
 import random
-import string as string
+import string
 from lib.strdict import StrDict
 
 alphanumeric = string.ascii_letters + string.digits

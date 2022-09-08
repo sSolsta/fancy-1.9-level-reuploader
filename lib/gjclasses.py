@@ -125,7 +125,7 @@ class GJLevel(StrDict):
         return self[31]
     @is_two_player.setter
     def is_two_player(self, v):
-        self[31] = v
+        self[31] = int(v)
     
     @property
     def custom_song_id(self):
@@ -161,7 +161,7 @@ class GJLevel(StrDict):
     def song_fadein(self, v):
         if not self.unpacked:
             self.unpack()
-        self.start_obj["kA15"] = v
+        self.start_obj["kA15"] = int(v)
     
     @property
     def song_fadeout(self):
@@ -172,7 +172,7 @@ class GJLevel(StrDict):
     def song_fadeout(self, v):
         if not self.unpacked:
             self.unpack()
-        self.start_obj["kA16"] = v
+        self.start_obj["kA16"] = int(v)
 
 
 class GJObject(StrDict):
@@ -185,7 +185,7 @@ class GJObject(StrDict):
         super().__init__(*args, **kwargs)
     
     def __str__(self):
-        return gjcrypt.encode_kv(self, separator=",") + ";"
+        return gjcrypt.encode_kv(self, separator = ",") + ";"
 
     def fix_layer(self):
         """uses 2.1 z layer and z order properties to emulate 1.9
@@ -199,8 +199,8 @@ class GJObject(StrDict):
         col = self.colour
         if info["hasColourChild"]:
             col = 0
-        elif not col or info["hasChildObj"]:
-            col = info["defaultCol"]
+        elif info["hasChildObj"]:
+            col = self.default_colour
         bottom = (info["z"] < 0)
         if col not in {1, 2, 5}:
             bottom |= info["forceBottom"]

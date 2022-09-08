@@ -14,7 +14,7 @@ gdps = gjservers.Server("http://gdps.nettik.co.uk/database/", name = "1.9")
 mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.1")
 
 
-def ask_yn(question, info = None, blank_line = True):
+def ask_yn(question, *, info = None, blank_line = True):
     """asks a yes or no question, and returns the result as a bool"""
     if blank_line:
         print()
@@ -31,7 +31,7 @@ def ask_yn(question, info = None, blank_line = True):
         print(info)
     else:
         print("Invalid response")
-    return ask_yn(question)
+    return ask_yn(question, info = info)
 
 
 def ask_level():
@@ -54,7 +54,7 @@ def ask_level():
         return ask_level()
 
 
-def ask_val(question, cond, oftype = str, allow_empty = False, blank_line = True):
+def ask_val(question, cond, *, oftype = int, allow_empty = False, blank_line = True):
     """asks for a value of a specified type under a specified
     condition
     """
@@ -67,14 +67,14 @@ def ask_val(question, cond, oftype = str, allow_empty = False, blank_line = True
         val = oftype(val)
     except ValueError:
         print("Invalid Response")
-        return ask_val(question, cond, oftype, allow_empty)
+        return ask_val(question, cond, oftype = oftype, allow_empty = allow_empty)
     if not cond(val):
         print("Invalid Response")
-        return ask_val(question, cond, oftype, allow_empty)
+        return ask_val(question, cond, oftype = oftype, allow_empty = allow_empty)
     return val
 
 
-def gj_login(server, player_id = None):
+def gj_login(server, *, player_id = None):
     """requests login information and attempts to log into the
     specified gd server
     """
