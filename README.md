@@ -58,3 +58,4 @@ downloads for both distributions can be found [on the github releases page](http
 	- will involve going through and reverse-engineering 2.1 just enough to be able to retrieve 2.1 hitboxes
 	- will not attempt to adjust for physics differences
 	- may have trouble with fixing objects with larger hitboxes in 2.1 if they exist
+- add multiprocessing to the glow dot merger (???)

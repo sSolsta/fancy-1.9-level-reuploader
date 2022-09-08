@@ -13,35 +13,51 @@ import random
 import string
 from lib.strdict import StrDict
 
-alphanumeric = string.ascii_letters + string.digits
+ALPHANUMERIC = string.ascii_letters + string.digits
 
 # a lot of this is just stolen from gddocs
 
 def xor(string, key):
-    return "".join(chr(ord(s) ^ ord(k)) for s, k in zip(string, itertools.cycle(str(key))))
+    key_cycle = itertools.cycle(str(key))
+    return "".join(chr(ord(s) ^ ord(k)) for s, k in zip(string, key_cycle))
+
 
 def decode_level(string):
-    return zlib.decompress(base64.urlsafe_b64decode(string), 15 | 32).decode()
+    decoded = base64.urlsafe_b64decode(string)
+    return zlib.decompress(decoded, 15 | 32).decode()
+
 
 def encode_level(string):
-    return base64.urlsafe_b64encode(gzip.compress(string.encode())).decode()
+    string = string.encode()
+    compressed = gzip.compress(string)
+    return base64.urlsafe_b64encode(compressed).decode()
+
 
 def make_gjp(password):
-    return base64.urlsafe_b64encode(xor(password, "37526").encode()).decode()
+    xored = xor(password, "37526").encode()
+    return base64.urlsafe_b64encode(xored).decode()
+
 
 def make_level_seed(string):
-    hash = hashlib.sha1(string.encode()[::len(string)//50][:50] + b"xI25fpAapCQg").hexdigest()
-    return base64.urlsafe_b64encode(xor(hash, "41274").encode()).decode()
+    string = string.encode()
+    sliced = string[::len(string)//50][:50] + b"xI25fpAapCQg"
+    hashed = hashlib.sha1(sliced).hexdigest()
+    xored = xor(hashed, "41274").encode()
+    return base64.urlsafe_b64encode(xored).decode()
 
-def decode_kv(str, separator = ":"):
-    split = str.split(separator)
+
+def decode_kv(string, separator = ":"):
+    split = string.split(separator)
     return StrDict({k: v for k, v in zip(split[0::2], split[1::2])})
+
 
 def encode_kv(dict, separator = ":"):
     return separator.join(separator.join((k, str(v))) for k, v in dict.items())
     
+    
 def random_string(length):
-    return "".join(random.choices(alphanumeric, k = length))
+    return "".join(random.choices(ALPHANUMERIC, k = length))
+
 
 def make_uuid(lengths = (8, 4, 4, 4, 10)):
     return "-".join(map(random_string, lengths))

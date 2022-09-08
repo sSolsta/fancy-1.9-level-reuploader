@@ -20,6 +20,8 @@ how it works:
     - we repeat this until any of the angle groups are empty, and we put
         the rest of the corners into the output list
 - we do this for every bucket and then return the output list
+
+could benefit from multiprocessing
 """
 
 import math as maths
