@@ -13,6 +13,25 @@ from lib import gjservers, gjcrypt, gjclasses, glowdotmerger
 gdps = gjservers.Server("http://gdps.nettik.co.uk/database/", name = "1.9")
 mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.1")
 
+# setting the infos i use in ask_yn as constants here bc it looks
+# ugly setting them inline
+LAYER_FIX_INFO = (
+    "2.1 displays layers differently, which can break the visuals of some levels. This option "
+    "changes the layers of some objects to replicate 1.9 behaviour"
+    )
+VISUAL_BUGS_INFO = (
+    "This fixes minor visual discrepancies between 1.9 and 2.1, such as some objects having "
+    "incorrect colours"
+    )
+GLOW_DOT_INFO = (
+    "This finds and replaces glow dots (4 glow corners around a single point) with the 2.1 glow "
+    "dot object, reducing the object count. May take upwards of 10 seconds on high object levels"
+    )
+HITBOX_FIX_INFO = (
+    "Some objects have different hitboxes between 2.1 and 1.9. This option uses invisible "
+    "objects to make the hitboxes in 2.1 match what they are in 1.9"
+    )
+
 
 def ask_yn(question, *, info = None, blank_line = True):
     """asks a yes or no question, and returns the result as a bool"""
@@ -132,29 +151,21 @@ def main():
     gj_login(gdps, player_id = level.uploader_player_id)
     login_info = gj_login(mainGD)
     # level processing options
-    if ask_yn("Fix layers?",
-              info = ("2.1 displays layers differently, which can break the visuals of some "
-                      "levels. This option changes the layers of some objects to replicate 1.9 "
-                      "behaviour")):
+    if ask_yn("Fix layers?", info = LAYER_FIX_INFO):
         print("Fixing layers...")
         level.unpack()
         for obj in level.objects:
             obj.fix_layer()
         print("Layers fixed")
     
-    if ask_yn("Fix visual bugs?",
-              info = ("This fixes minor visual discrepancies between 1.9 and 2.1, such as some "
-                      "objects having incorrect colours")):
+    if ask_yn("Fix visual bugs?", info = VISUAL_BUGS_INFO):
         print("Fixing visual bugs...")
         level.unpack()
         for obj in level.objects:
             obj.fix_visual_bugs()
         print("Visual bugs fixed")
     
-    if ask_yn("Merge glow dots?",
-              info = ("This finds and replaces glow dots (4 glow corners around a single point) "
-                      "with the 2.1 glow dot object, reducing the object count. May take upwards "
-                      "of 10 seconds on high object levels")):
+    if ask_yn("Merge glow dots?", info = GLOW_DOT_INFO):
         level.unpack()
         level.objects = glowdotmerger.the_fuckening(level.objects)
     # change song
