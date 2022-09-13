@@ -6,6 +6,8 @@ with extra stuff if you want it
 created by ssolsta 2021-2022
 more info: https://github.com/sSolsta/fancy-1.9-level-reuploader/
 """
+
+import multiprocessing
 import traceback
 from getpass import getpass
 from lib import gjservers, gjcrypt, gjclasses, glowdotmerger
@@ -167,7 +169,11 @@ def main():
     
     if ask_yn("Merge glow dots?", info = GLOW_DOT_INFO):
         level.unpack()
-        level.objects = glowdotmerger.the_fuckening(level.objects)
+        enable_multi = ask_yn(
+            "Use multiprocessing? (Faster, only disable if it crashes)",
+            blank_line = False,
+            )
+        level.objects = glowdotmerger.the_fuckening(level.objects, enable_multi = enable_multi)
     # change song
     if ask_yn("Change the song? (Only allows for newgrounds songs and not main level songs)"):
         song_id = ask_val(
@@ -207,6 +213,7 @@ def main():
 
 if __name__ == "__main__":
     try:
+        multiprocessing.freeze_support()
         main()
     except Exception:
         print()

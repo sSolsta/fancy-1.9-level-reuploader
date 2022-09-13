@@ -23,18 +23,49 @@ how it works:
 
 could benefit from multiprocessing
 """
-
 import math as maths
 import time
+import multiprocessing
 
 ERROR_MARGIN = 0.125  # arbitrary value, one block is 30 units
 GLOW_CORNER_ID = "504"
 GLOW_DOT_ID = 1886
-NS_PER_LOG = 4000_000_000  # 4 seconds
-MIN_NS_PER_LOG = 100_000_000  # 0.1 seconds
+NS_PER_LOG = 500_000_000  # 0.5 seconds
 
 
-def the_fuckening(objects, log = True):
+# moved to separate function for multiprocessing
+def merge_bucket(bucket, output = None):
+    if output is None:
+        output = []
+    # sorting to angle groups
+    angle_groups = [[] for _ in range(4)]
+    for obj in bucket:
+        angle_groups[obj.subgroup].append(obj)
+    while min(len(x) for x in angle_groups):
+        # get corner and attempt to find compatible corners
+        obj = angle_groups[0].pop()
+        fail = False
+        for group in angle_groups[1:]:
+            group.sort(key = lambda x: maths.dist(obj.centre, x.centre))
+            if maths.dist(obj.centre, group[0].centre) > ERROR_MARGIN:
+                fail = True
+                break
+        if fail:
+            output.append(obj)
+            continue
+        # taking average centre and using as centre of glow dot
+        centres = (obj.centre, *(x.pop(0).centre for x in angle_groups[1:]))
+        obj.x, obj.y = (sum(x) / len(x) for x in zip(*centres))
+        
+        obj.id = GLOW_DOT_ID
+        output.append(obj)
+    # put remaining corners into output
+    for group in angle_groups:
+        output.extend(group)
+    
+    return (output, len(bucket))
+
+def the_fuckening(objects, log = True, enable_multi = True):
     output = []
     buckets = {}
     if log:
@@ -52,42 +83,22 @@ def the_fuckening(objects, log = True):
         print(f"{count} glow corners sorted, beginning merging")
         processed = 0
         start_time = log_time = time.time_ns()
-    
-    for bucket in buckets:
-        # sorting to angle groups
-        angle_groups = [[] for _ in range(4)]
-        for obj in buckets[bucket]:
-            angle_groups[obj.subgroup].append(obj)
-        while min(len(x) for x in angle_groups):
-            if log and time.time_ns()-log_time >= NS_PER_LOG:
+    # merge buckets
+    if enable_multi:
+        with multiprocessing.Pool() as pool:
+            for out, in_count in pool.imap_unordered(merge_bucket, buckets.values()):
+                output.extend(out)
+                processed += in_count
+                if log and (time.time_ns()-log_time >= NS_PER_LOG or count == processed):
+                    print(f"{processed} of {count} glow corners processed")
+                    log_time = time.time_ns()
+    else:
+        for bucket in buckets.values():
+            merge_bucket(bucket, output = output)
+            processed += len(bucket)
+            if log and (time.time_ns()-log_time >= NS_PER_LOG or count == processed):
                 print(f"{processed} of {count} glow corners processed")
-                log_time += NS_PER_LOG
-            # get corner and attempt to find compatible corners
-            obj = angle_groups[0].pop()
-            fail = False
-            for group in angle_groups[1:]:
-                group.sort(key = lambda x: maths.dist(obj.centre, x.centre))
-                if maths.dist(obj.centre, group[0].centre) > ERROR_MARGIN:
-                    fail = True
-                    break
-            if fail:
-                output.append(obj)
-                processed += 1
-                continue
-            # taking average centre and using as centre of glow dot
-            centres = (obj.centre, *(x.pop(0).centre for x in angle_groups[1:]))
-            obj.x, obj.y = (sum(x) / len(x) for x in zip(*centres))
-            
-            obj.id = GLOW_DOT_ID
-            output.append(obj)
-            processed += 4
-        # put remaining corners into output
-        for group in angle_groups:
-            output.extend(group)
-            processed += len(group)
-        if log and (time.time_ns()-log_time >= MIN_NS_PER_LOG or count == processed):
-            print(f"{processed} of {count} glow corners processed")
-            log_time = time.time_ns()
+                log_time = time.time_ns()
     if log:
         final_time = (time.time_ns() - start_time) / (1000_000_000)
         print(f"Completed in {final_time} seconds")

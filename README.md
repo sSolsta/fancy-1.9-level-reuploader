@@ -48,9 +48,9 @@ downloads for both distributions can be found [on the github releases page](http
 	- created win64 executable with pyinstaller
 - 25 august 2022 (v2.11):
 	- fixed issue with 3d layering (i was making a comparison where i shouldn't have)
-- 8 september 2022 (v2.113):
+- 13 september 2022 (v2.113):
 	- cleaned up the code and attempted to make it almost pep-8 compliant (no spaces around equals signs is ugly) (and also pep-8 specifically states the line length limit can be extended to 99 characters)
-	- no functionality changes
+	- rewrote the glow dot merger slightly to utilise multiprocessing (much faster, only really matters for levels like right out and freedom19 with a fuckton of glow dots)
 
 ## future plans
 
@@ -58,4 +58,3 @@ downloads for both distributions can be found [on the github releases page](http
 	- will involve going through and reverse-engineering 2.1 just enough to be able to retrieve 2.1 hitboxes
 	- will not attempt to adjust for physics differences
 	- may have trouble with fixing objects with larger hitboxes in 2.1 if they exist
-- add multiprocessing to the glow dot merger (???)
