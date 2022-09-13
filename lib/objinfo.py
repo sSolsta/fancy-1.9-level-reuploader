@@ -1,23 +1,30 @@
-'''
+"""lib.objinfo
+
 should contain everything needed to determine the layer of a gd object
 
 a simplified version of how layering works:
 - there are two layers, normal and bottom
-- if an object has a z below 0 or has forcebottom enabled, it is set to bottom, otherwise it is set to normal
-- HOWEVER, due to a quirk in the code, p1, p2 & lbg objects ignore the forcebottom check, only paying attention to z order
+- if an object has a z below 0 or has forcebottom enabled, it is set to
+    bottom, otherwise it is set to normal
+- HOWEVER, due to a quirk in the code, p1, p2 & lbg objects ignore the
+    forcebottom check, only paying attention to z order
 
-the best analogue for 1.9 normal and bottom layers in 2.1 are layer 4 (between t1 and b1) and layer 2 (between b1 and b2), respectively
+the best analogue for 1.9 normal and bottom layers in 2.1 are layer 4
+(between t1 and b1) and layer 2 (between b1 and b2), respectively
 
 to get an object's colour:
-- if the colour is set and the object does not have a childobject, return the set colour
+- if the colour is set and the object does not have a childobject,
+    return the set colour
 - otherwise, return the default colour
-note that if the object has a colourchild we ignore the colour and act as if the colour is 0 (not set)
+note that if the object has a colourchild we ignore the colour and act
+    as if the colour is 0 (not set)
 
-colour children should be 1 z layer below the parent, but in 2.1 they are not. this script does not fix this as of yet, but
-the fix will inflate the object count. dontShow will be used to attempt to mitigate this slightly
-'''
+colour children should be 1 z layer below the parent, but in 2.1 they
+are not. i originally intended to fix this but decided against this as
+the fix would cause more issues than it solves
+"""
 
-objInfo = {
+obj_info = {
     '1': {
         'defaultCol': 0,
         'z': 2,

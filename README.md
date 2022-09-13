@@ -48,6 +48,9 @@ downloads for both distributions can be found [on the github releases page](http
 	- created win64 executable with pyinstaller
 - 25 august 2022 (v2.11):
 	- fixed issue with 3d layering (i was making a comparison where i shouldn't have)
+- 13 september 2022 (v2.113):
+	- cleaned up the code and attempted to make it almost pep-8 compliant (no spaces around equals signs is ugly) (and also pep-8 specifically states the line length limit can be extended to 99 characters)
+	- rewrote the glow dot merger slightly to utilise multiprocessing (much faster, only really matters for levels like right out and freedom19 with a fuckton of glow dots)
 
 ## future plans
 

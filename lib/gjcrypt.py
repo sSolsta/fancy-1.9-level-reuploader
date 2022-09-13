@@ -1,41 +1,63 @@
+"""lib.gjcrypt
+
+contains functions used for encoding/decoding geometry dash data, among
+other things
+"""
+
 import base64
 import hashlib
 import itertools
 import zlib
 import gzip
 import random
-import string as stringo
+import string
 from lib.strdict import StrDict
 
-alphanumeric = stringo.ascii_letters + stringo.digits
+ALPHANUMERIC = string.ascii_letters + string.digits
 
 # a lot of this is just stolen from gddocs
 
 def xor(string, key):
-    return "".join([chr(ord(s) ^ ord(k)) for s, k in zip(string, itertools.cycle(str(key)))])
+    key_cycle = itertools.cycle(str(key))
+    return "".join(chr(ord(s) ^ ord(k)) for s, k in zip(string, key_cycle))
 
-def decodeLevel(string):
-    return zlib.decompress(base64.urlsafe_b64decode(string), 15 | 32).decode()
 
-def encodeLevel(string):
-    return base64.urlsafe_b64encode(gzip.compress(string.encode())).decode()
+def decode_level(string):
+    decoded = base64.urlsafe_b64decode(string)
+    return zlib.decompress(decoded, 15 | 32).decode()
 
-def makeGJP(password):
-    return base64.urlsafe_b64encode(xor(password, "37526").encode()).decode()
 
-def makeSeed2(string):
-    hash = hashlib.sha1(string.encode()[::len(string)//50][:50] + b"xI25fpAapCQg").hexdigest()
-    return base64.urlsafe_b64encode(xor(hash, "41274").encode()).decode()
+def encode_level(string):
+    string = string.encode()
+    compressed = gzip.compress(string)
+    return base64.urlsafe_b64encode(compressed).decode()
 
-def parseKV(str, separator = ":"):
-    split = str.split(separator)
-    return StrDict({k: v for k,v in zip(split[0::2], split[1::2])})
 
-def toKV(dict, separator = ":"):
-    return separator.join(separator.join(str(y) for y in x) for x in dict.items())
+def make_gjp(password):
+    xored = xor(password, "37526").encode()
+    return base64.urlsafe_b64encode(xored).decode()
 
-def randomString(length):
-    return "".join(random.choices(alphanumeric, k = length))
 
-def makeUUID(lengths = [8, 4, 4, 4, 10]):
-    return "-".join(map(randomString, lengths))
+def make_level_seed(string):
+    string = string.encode()
+    sliced = string[::len(string)//50][:50] + b"xI25fpAapCQg"
+    hashed = hashlib.sha1(sliced).hexdigest()
+    xored = xor(hashed, "41274").encode()
+    return base64.urlsafe_b64encode(xored).decode()
+
+
+def decode_kv(string, separator = ":"):
+    split = string.split(separator)
+    return StrDict({k: v for k, v in zip(split[0::2], split[1::2])})
+
+
+def encode_kv(dict, separator = ":"):
+    return separator.join(separator.join((k, str(v))) for k, v in dict.items())
+    
+    
+def random_string(length):
+    return "".join(random.choices(ALPHANUMERIC, k = length))
+
+
+def make_uuid(lengths = (8, 4, 4, 4, 10)):
+    return "-".join(map(random_string, lengths))

@@ -1,9 +1,16 @@
-from collections import UserDict
+"""lib.strdict
 
-class StrDict(UserDict):
+contains StrDict, dict class that forcibly converts
+any keys you attempt to use into strings
+"""
+
+class StrDict(dict):
+    """dict class that forcibly converts any keys you attempt to use
+    into strings
+    """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-    # making it so that i can access str keys with ints for convenience
+    
     def __getitem__(self, key):
         return super().__getitem__(str(key))
         
@@ -18,4 +25,3 @@ class StrDict(UserDict):
         
     def pop(self, key, default = None):
         return super().pop(str(key), default)
-    
