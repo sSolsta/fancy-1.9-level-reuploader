@@ -2,6 +2,7 @@
 
 contains GJLevel and GJObject
 """
+
 import math as maths  # i am stubborn
 from lib import gjcrypt
 from lib.strdict import StrDict

@@ -20,9 +20,8 @@ how it works:
     - we repeat this until any of the angle groups are empty, and we put
         the rest of the corners into the output list
 - we do this for every bucket and then return the output list
-
-could benefit from multiprocessing
 """
+
 import math as maths
 import time
 import multiprocessing
@@ -100,7 +99,7 @@ def the_fuckening(objects, log = True, enable_multi = True):
                 print(f"{processed} of {count} glow corners processed")
                 log_time = time.time_ns()
     if log:
-        final_time = (time.time_ns() - start_time) / (1000_000_000)
+        final_time = (time.time_ns() - start_time) / (1_000_000_000)
         print(f"Completed in {final_time} seconds")
                 
     return output

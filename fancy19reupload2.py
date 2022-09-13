@@ -213,6 +213,7 @@ def main():
 
 if __name__ == "__main__":
     try:
+        # required for windows pyinstaller
         multiprocessing.freeze_support()
         main()
     except Exception:
