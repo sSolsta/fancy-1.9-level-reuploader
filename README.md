@@ -16,7 +16,7 @@ created by ssolsta
 ## requirements
 
 ### python distribution (multi-platform)
-- [python](https://www.python.org/) (only tested with 3.8.10, will probably not work on earlier versions, if in doubt install the latest version)
+- [python](https://www.python.org/) (only tested with 3.8.10 and 3.11.1, will probably not work on earlier versions, if in doubt install the latest version)
 
 ### win64 distribution (windows)
 - a 64-bit version of windows (only tested with windows 10, no guarantee it will work on any earlier versions)
@@ -51,7 +51,9 @@ downloads for both distributions can be found [on the github releases page](http
 - 13 september 2022 (v2.113):
 	- cleaned up the code and attempted to make it almost pep-8 compliant (no spaces around equals signs is ugly) (and also pep-8 specifically states the line length limit can be extended to 99 characters)
 	- rewrote the glow dot merger slightly to utilise multiprocessing (much faster, only really matters for levels like right out and freedom19 with a fuckton of glow dots)
-
+- 25 june 2023 (v2.12):
+	- fixed issue with 3d layering (i wasn't making a comparison where i should have) (yes i'm pretty sure this is just reverting the change made in v2.11)
+  - had a change of heart about spaces around equals signs
 ## future plans
 
 - add hitbox fixing
