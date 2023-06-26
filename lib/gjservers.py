@@ -8,10 +8,12 @@ from urllib import request, parse
 from urllib.error import URLError
 
 # shamelessly stolen from zmx
-def post_request(url, data):
-  data = parse.urlencode(data).encode()
-  req = request.Request(url, data=data, headers={"User-Agent": ""})
-  return request.urlopen(req, timeout=30).read().decode()
+def http_request(url, data=None, method=None, timeout=30, include_user_agent=True):
+  headers = {} if include_user_agent else {"User-Agent": ""}
+  if data is not None:
+    data = parse.urlencode(data).encode()
+  req = request.Request(url, data=data, headers=headers, method=method)
+  return request.urlopen(req, timeout=timeout).read().decode()
 
 DEFAULTS = {
   "gameVersion": 21,
@@ -30,7 +32,7 @@ class Server:
     url = "".join((self.link, endpoint))
     params = {**DEFAULTS, **params}
     try:
-      response = post_request(url, params)
+      response = http_request(url, params, method="POST", include_user_agent=False)
     except (URLError, socket.timeout):
       return
     if fail_on_neg:
