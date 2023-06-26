@@ -54,6 +54,8 @@ downloads for both distributions can be found [on the github releases page](http
 - 25 june 2023 (v2.12):
 	- fixed issue with 3d layering (i wasn't making a comparison where i should have) (yes i'm pretty sure this is just reverting the change made in v2.11)
   - had a change of heart about spaces around equals signs
+- 26 june 2023 (v2.14):
+	- added code to automatically check for new updates on github
 ## future plans
 
 - add hitbox fixing
