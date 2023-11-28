@@ -166,7 +166,7 @@ COULD_NOT_OPEN_ERROR = (
   f"Could not open the latest release page.\nThe latest release can be found at {RELEASE_LINK}"
   )
 
-POLL_INTERVAL = 60*60*24*3  # 3 days
+POLL_INTERVAL = 60*60*24*1  # 1 day
 POLL_TIMESTAMP_PATH = "mysteriousnumber.dat"
 
 current_time = int(time.time())
