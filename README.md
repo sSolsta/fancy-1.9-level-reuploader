@@ -17,6 +17,7 @@ created by ssolsta
 
 ### python distribution (multi-platform)
 - [python](https://www.python.org/) (only tested with 3.8.10 and 3.11.1, will probably not work on earlier versions, if in doubt install the latest version)
+- **OPTIONAL:** [pwinput](https://pypi.org/project/pwinput/), to show password input as asterisks - `pip install pwinput`
 
 ### win64 distribution (windows)
 - a 64-bit version of windows (only tested with windows 10, no guarantee it will work on any earlier versions)
@@ -56,9 +57,17 @@ downloads for both distributions can be found [on the github releases page](http
   - had a change of heart about spaces around equals signs
 - 26 june 2023 (v2.14):
 	- added code to automatically check for new updates on github
+- 28 november 2023 (v2.15):
+	- added password asterisk display through optional pwinput module (included in windows distribution)
+	- added temporary warning to layer fixing
+	- added detection of emergency updates
+
 ## future plans
 
-- add hitbox fixing
-	- will involve going through and reverse-engineering 2.1 just enough to be able to retrieve 2.1 hitboxes
+- add support for .gmd (input and output)
+- update endpoints to be compatible with 2.2
+- maybe: add hitbox fixing
+	- will involve going through and reverse-engineering 2.2 just enough to be able to retrieve 2.2 hitboxes
 	- will not attempt to adjust for physics differences
-	- may have trouble with fixing objects with larger hitboxes in 2.1 if they exist
+	- may have trouble with fixing objects with larger hitboxes in 2.2 if they exist
+- maybe: add optional support for colorama (coloured text)

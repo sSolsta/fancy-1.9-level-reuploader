@@ -1,9 +1,9 @@
-"""fancy 1.9 reuploader v2.12
+"""fancy 1.9 reuploader v2.15
 
 lets you reupload 1.9 levels to 2.1
 with extra stuff if you want it
 
-created by ssolsta 2021-2022
+created by ssolsta 2021-2023
 more info: https://github.com/sSolsta/fancy-1.9-level-reuploader/
 """
 
@@ -12,12 +12,12 @@ import traceback
 import webbrowser
 import time
 from datetime import datetime
-from getpass import getpass
 from lib import gjservers, gjcrypt, gjclasses, glowdotmerger
 from lib.github import github_request, RELEASE_LINK
+from lib.askpass import askpass
 from urllib.error import HTTPError
 
-VERSION_TAG = "v2.14"
+VERSION_TAG = "v2.15"
 
 gdps = gjservers.Server("http://gdps.nettik.co.uk/database/", name = "1.9")
 mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.1")
@@ -27,6 +27,11 @@ mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.1")
 LAYER_FIX_INFO = (
   "2.1 displays layers differently, which can break the visuals of some levels. This option "
   "changes the layers of some objects to replicate 1.9 behaviour"
+  )
+LAYER_FIX_WARNING = (
+  "WARNING: There is a possibility that using layer fixing could result in your level breaking "
+  "in 2.2, however this is not guaranteed. If it does, an emergency script will be distributed "
+  "to fix levels already reuploaded. Use with caution."
   )
 VISUAL_BUGS_INFO = (
   "This fixes minor visual discrepancies between 1.9 and 2.1, such as some objects having "
@@ -108,7 +113,7 @@ def gj_login(server, *, player_id=None):
   """
   print()
   username = input(f"Your {server.name} username: ")
-  password = getpass(f"Your {server.name} password: ")
+  password = askpass(f"Your {server.name} password: ")
   params = {
     "userName": username,
     "password": password,
@@ -234,6 +239,8 @@ def check_for_update(silent=False):
   elif latest_timestamp > current_timestamp:
     print()
     print(f"A new version, {latest_tag}, has been found on GitHub.")
+    if latest_tag.lower().endswith("em"):
+      print("It has been marked as an emergency update, I highly recommend you update.")
     if ask_yn("Go to the release page?"):
       try:
         webbrowser.open(RELEASE_LINK)
@@ -260,6 +267,8 @@ def main():
   gj_login(gdps, player_id=level.uploader_player_id)
   login_info = gj_login(mainGD)
   # level processing options
+  print()
+  print(LAYER_FIX_WARNING)
   if ask_yn("Fix layers?", info=LAYER_FIX_INFO):
     print("Fixing layers...")
     level.unpack()
