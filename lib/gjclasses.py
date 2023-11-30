@@ -10,6 +10,7 @@ from lib.objinfo import obj_info
 
 TENSQRTTWO = 10 * maths.sqrt(2)
 
+TWO_POINT_TWO_FIX = True  # if 2.2 truly breaks it
 
 class GJLevel(StrDict):
   """GJLevel(StrDict)
@@ -207,6 +208,8 @@ class GJObject(StrDict):
       bottom |= info["forceBottom"]
     
     self.z_layer = 2 if bottom else 4
+    if TWO_POINT_TWO_FIX:
+      self.z_layer += 1
     self.z_order = info["z"]
   
   def fix_visual_bugs(self):

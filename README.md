@@ -1,8 +1,16 @@
 # fancy 1.9 level reuploader (v2)
 
-transfers your level from 1.9 to 2.1 but with extra stuff if you want it
+transfers your level from 1.9 to 2.2 but with extra stuff if you want it
 
 created by ssolsta
+
+# !!! IMPORTANT !!!
+
+2.2 introduces changes to how z layers work in a way that **breaks reuploaded levels using layer fixing**.
+included as `broken_levels.md` is a list of all the known rated levels affected by this in some way,
+though this does not include any unrated levels and might not include all rated levels affected.
+an emergency script (`emergencyfix.py` or `emergencyfix.exe`) has been included to fix any levels already reuploaded, although
+both this and the reupload script currently rely on 2.1 endpoints, which may be disabled at any time.
 
 ## features:
 
@@ -27,10 +35,20 @@ downloads for both distributions can be found [on the github releases page](http
 
 ## instructions
 
+### reupload script
+
 1. open `fancy19reupload2.py` via the command line or via your system's file browser
 	- `fancy19reupload2.exe` if you are using the win64 distribution
-2. follow the instructions given by the command prompt (you will require the login information of the 1.9 account that the level is on and the 2.1 account that you wish to upload the level to)
+2. follow the instructions given by the command prompt (you will require the login information of the 1.9 account that the level is on and the 2.2 account that you wish to upload the level to)
 3. yeah that's it
+
+### emergency fix
+
+1. open `emergencyfix.py` via the command line or via your system's file browser
+	- `emergencyfix.exe` if you are using the win64 distribution
+2. enter your 2.2 login details
+3. enter the id of the level you wish to fix and follow the instructions given by the command prompt
+4. you will be asked if there are any more levels you wish to reupload. this means you can fix multiple levels without relaunching the script, although they must be done one at a time
 
 ## changelog
 
@@ -61,6 +79,9 @@ downloads for both distributions can be found [on the github releases page](http
 	- added password asterisk display through optional pwinput module (included in windows distribution)
 	- added temporary warning to layer fixing
 	- added detection of emergency updates
+- xx december 2023 (v2.16-em):
+	- modified layer fixing to not break in 2.2
+  - included emergency script to fix levels already reuploaded to 2.2 broken by layer fixing
 
 ## future plans
 

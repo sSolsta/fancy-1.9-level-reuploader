@@ -1,4 +1,4 @@
-"""fancy 1.9 reuploader v2.15
+"""fancy 1.9 reuploader v2.16-em
 
 lets you reupload 1.9 levels to 2.1
 with extra stuff if you want it
@@ -17,10 +17,10 @@ from lib.github import github_request, RELEASE_LINK
 from lib.askpass import askpass
 from urllib.error import HTTPError
 
-VERSION_TAG = "v2.15"
+VERSION_TAG = "v2.16-em"
 
 gdps = gjservers.Server("http://gdps.nettik.co.uk/database/", name = "1.9")
-mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.1")
+mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.2")
 
 # setting the infos i use in ask_yn as constants here bc it looks
 # ugly setting them inline
@@ -267,8 +267,6 @@ def main():
   gj_login(gdps, player_id=level.uploader_player_id)
   login_info = gj_login(mainGD)
   # level processing options
-  print()
-  print(LAYER_FIX_WARNING)
   if ask_yn("Fix layers?", info=LAYER_FIX_INFO):
     print("Fixing layers...")
     level.unpack()
