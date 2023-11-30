@@ -4,11 +4,13 @@ transfers your level from 1.9 to 2.2 but with extra stuff if you want it
 
 created by ssolsta
 
-# !!! IMPORTANT !!!
+# IMPORTANT
 
 2.2 introduces changes to how z layers work in a way that **breaks reuploaded levels using layer fixing**.
-included as `broken_levels.md` is a list of all the known rated levels affected by this in some way,
+
+in `broken_levels.md` is a list of all the known rated levels affected by this in some way,
 though this does not include any unrated levels and might not include all rated levels affected.
+
 an emergency script (`emergencyfix.py` or `emergencyfix.exe`) has been included to fix any levels already reuploaded, although
 both this and the reupload script currently rely on 2.1 endpoints, which may be disabled at any time.
 
@@ -48,7 +50,7 @@ downloads for both distributions can be found [on the github releases page](http
 	- `emergencyfix.exe` if you are using the win64 distribution
 2. enter your 2.2 login details
 3. enter the id of the level you wish to fix and follow the instructions given by the command prompt
-4. you will be asked if there are any more levels you wish to reupload. this means you can fix multiple levels without relaunching the script, although they must be done one at a time
+4. you will be asked if there are any more levels you wish to fix. this means you can fix multiple levels without relaunching the script, although they must be done one at a time
 
 ## changelog
 
