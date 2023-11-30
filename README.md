@@ -8,7 +8,7 @@ created by ssolsta
 
 2.2 introduces changes to how z layers work in a way that **breaks reuploaded levels using layer fixing**.
 
-in `broken_levels.md` is a list of all the known rated levels affected by this in some way,
+`broken_levels.md` is a list of all the known rated levels affected by this in some way,
 though this does not include any unrated levels and might not include all rated levels affected.
 
 an emergency script (`emergencyfix.py` or `emergencyfix.exe`) has been included to fix any levels already reuploaded, although
