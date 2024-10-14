@@ -11,6 +11,7 @@ import zlib
 import gzip
 import random
 import string
+import uuid
 from lib.strdict import StrDict
 
 ALPHANUMERIC = string.ascii_letters + string.digits
@@ -20,6 +21,11 @@ ALPHANUMERIC = string.ascii_letters + string.digits
 def xor(string, key):
   key_cycle = itertools.cycle(str(key))
   return "".join(chr(ord(s) ^ ord(k)) for s, k in zip(string, key_cycle))
+
+
+def xor_bytes(string, key):
+  key_cycle = itertools.cycle(key)
+  return bytes(s ^ k for s, k in zip(string, key_cycle))
 
 
 def decode_level(string):
@@ -36,6 +42,11 @@ def encode_level(string):
 def make_gjp(password):
   xored = xor(password, "37526").encode()
   return base64.urlsafe_b64encode(xored).decode()
+
+
+def make_gjp2(password, salt="mI29fmAnxgTs"):
+  password += salt
+  return hashlib.sha1(password.encode()).hexdigest()
 
 
 def make_level_seed(string):
@@ -60,4 +71,4 @@ def random_string(length):
 
 
 def make_uuid(lengths = (8, 4, 4, 4, 10)):
-  return "-".join(map(random_string, lengths))
+  return str(uuid.uuid4())

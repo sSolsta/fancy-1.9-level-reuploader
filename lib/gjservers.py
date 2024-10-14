@@ -16,8 +16,8 @@ def http_request(url, data=None, method=None, timeout=30, include_user_agent=Tru
   return request.urlopen(req, timeout=timeout).read().decode()
 
 DEFAULTS = {
-  "gameVersion": 21,
-  "binaryVersion": 35,
+  "gameVersion": 22,
+  "binaryVersion": 42,
   "gdw": 0,
   "secret": "Wmfd2893gb7",
   }
@@ -31,6 +31,9 @@ class Server:
   def req(self, endpoint, params={}, fail_on_neg=True):
     url = "".join((self.link, endpoint))
     params = {**DEFAULTS, **params}
+    for k in list(params.keys()):
+      if params[k] is None:
+        del params[k]
     try:
       response = http_request(url, params, method="POST", include_user_agent=False)
     except (URLError, socket.timeout):

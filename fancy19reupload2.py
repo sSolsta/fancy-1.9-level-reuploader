@@ -17,24 +17,20 @@ from lib.github import github_request, RELEASE_LINK
 from lib.askpass import askpass
 from urllib.error import HTTPError
 
-VERSION_TAG = "v2.15"
+VERSION_TAG = "v2.16"
 
-gdps = gjservers.Server("http://gdps.nettik.co.uk/database/", name = "1.9")
-mainGD = gjservers.Server("http://www.boomlings.com/database/", name = "2.1")
+# nettik.co.uk doesn't support https, absolllute.com does
+gdps = gjservers.Server("https://absolllute.com/gdps/gdapi/", name = "1.9")
+mainGD = gjservers.Server("https://www.boomlings.com/database/", name = "2.2")
 
 # setting the infos i use in ask_yn as constants here bc it looks
 # ugly setting them inline
 LAYER_FIX_INFO = (
-  "2.1 displays layers differently, which can break the visuals of some levels. This option "
+  "2.2 displays layers differently, which can break the visuals of some levels. This option "
   "changes the layers of some objects to replicate 1.9 behaviour"
   )
-LAYER_FIX_WARNING = (
-  "WARNING: There is a possibility that using layer fixing could result in your level breaking "
-  "in 2.2, however this is not guaranteed. If it does, an emergency script will be distributed "
-  "to fix levels already reuploaded. Use with caution."
-  )
 VISUAL_BUGS_INFO = (
-  "This fixes minor visual discrepancies between 1.9 and 2.1, such as some objects having "
+  "This fixes minor visual discrepancies between 1.9 and 2.2, such as some objects having "
   "incorrect colours"
   )
 GLOW_DOT_INFO = (
@@ -42,8 +38,8 @@ GLOW_DOT_INFO = (
   "dot object, reducing the object count. May take upwards of 10 seconds on high object levels"
   )
 HITBOX_FIX_INFO = (
-  "Some objects have different hitboxes between 2.1 and 1.9. This option uses invisible "
-  "objects to make the hitboxes in 2.1 match what they are in 1.9"
+  "Some objects have different hitboxes between 2.2 and 1.9. This option uses invisible "
+  "objects to make the hitboxes in 2.2 match what they are in 1.9"
   )
 
 
@@ -116,7 +112,10 @@ def gj_login(server, *, player_id=None):
   password = askpass(f"Your {server.name} password: ")
   params = {
     "userName": username,
+    # 1.9 requires plaintext password. 2.2 requires gjp2. instead of attempting
+    # to figure out which to send we just send both because it's easier
     "password": password,
+    "gjp2": gjcrypt.make_gjp2(password),
     "udid": gjcrypt.make_uuid(),
     "secret": "Wmfv3899gc9",
     }
@@ -267,8 +266,6 @@ def main():
   gj_login(gdps, player_id=level.uploader_player_id)
   login_info = gj_login(mainGD)
   # level processing options
-  print()
-  print(LAYER_FIX_WARNING)
   if ask_yn("Fix layers?", info=LAYER_FIX_INFO):
     print("Fixing layers...")
     level.unpack()
@@ -314,7 +311,7 @@ def main():
   # retrieve upload parameters and upload level
   params = level.upload_info()
   params["accountID"] = login_info["account_id"]
-  params["gjp"] = gjcrypt.make_gjp(login_info["password"])
+  params["gjp2"] = gjcrypt.make_gjp2(login_info["password"])
   params["userName"] = login_info["username"]
   print()
   level_name = input(
