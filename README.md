@@ -1,13 +1,13 @@
 # fancy 1.9 level reuploader (v2)
 
-transfers your level from 1.9 to 2.1 but with extra stuff if you want it
+transfers your level from 1.9 to 2.2 but with extra stuff if you want it
 
 created by ssolsta
 
 ## features:
 
-- layer fixing (makes the level's layering on 2.1 like it would be on 1.9)
-- visual bug fixing (fixes a 2.1 colour bug, replicates a different 1.9 colour bug, and removes glow from a select few objects)
+- layer fixing (makes the level's layering on 2.2 like it would be on 1.9)
+- visual bug fixing (fixes a 2.2 colour bug, replicates a different 1.9 colour bug, and removes glow from a select few objects)
 - glow dot merging (replaces glow dots made of corner pieces with the 2.1 glow dot object, to help reduce lag and object count)
 - change the song (for if the song used is not on newgrounds, though this isn't a requirement to use this feature)
 - change the name
@@ -16,7 +16,7 @@ created by ssolsta
 ## requirements
 
 ### python distribution (multi-platform)
-- [python](https://www.python.org/) (only tested with 3.8.10 and 3.11.1, will probably not work on earlier versions, if in doubt install the latest version)
+- [python](https://www.python.org/) (only tested with 3.8.10, 3.11.1 and 3.12.5, will probably not work on earlier versions, if in doubt install the latest version)
 - **OPTIONAL:** [pwinput](https://pypi.org/project/pwinput/), to show password input as asterisks - `pip install pwinput`
 
 ### win64 distribution (windows)
@@ -29,7 +29,7 @@ downloads for both distributions can be found [on the github releases page](http
 
 1. open `fancy19reupload2.py` via the command line or via your system's file browser
 	- `fancy19reupload2.exe` if you are using the win64 distribution
-2. follow the instructions given by the command prompt (you will require the login information of the 1.9 account that the level is on and the 2.1 account that you wish to upload the level to)
+2. follow the instructions given by the command prompt (you will require the login information of the 1.9 account that the level is on and the 2.2 account that you wish to upload the level to)
 3. yeah that's it
 
 ## changelog
@@ -61,11 +61,16 @@ downloads for both distributions can be found [on the github releases page](http
 	- added password asterisk display through optional pwinput module (included in windows distribution)
 	- added temporary warning to layer fixing
 	- added detection of emergency updates
+- 14 october 2024 (v2.16):
+    - altered 2.2 endpoints to use the new `gjp2` (as of recently this is now required)
+    - changed both 1.9 and 2.2 endpoints to use https (sending plaintext passwords over unencrypted http is not good)
+    - updated text to read "2.2" instead of "2.1"
+    - removed temporary warning from layer fixing
+    
 
 ## future plans
 
 - add support for .gmd (input and output)
-- update endpoints to be compatible with 2.2
 - maybe: add hitbox fixing
 	- will involve going through and reverse-engineering 2.2 just enough to be able to retrieve 2.2 hitboxes
 	- will not attempt to adjust for physics differences
