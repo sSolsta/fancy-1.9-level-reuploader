@@ -17,10 +17,9 @@ from lib.github import github_request, RELEASE_LINK
 from lib.askpass import askpass
 from urllib.error import HTTPError
 
-VERSION_TAG = "v2.16"
+VERSION_TAG = "v2.17"
 
-# nettik.co.uk doesn't support https, absolllute.com does
-gdps = gjservers.Server("https://absolllute.com/gdps/gdapi/", name = "1.9")
+gdps = gjservers.Server("https://19gdps.com/gdapi/", name = "1.9")
 mainGD = gjservers.Server("https://www.boomlings.com/database/", name = "2.2")
 
 # setting the infos i use in ask_yn as constants here bc it looks
@@ -71,7 +70,7 @@ def ask_level():
     oftype = int,
     )
   
-  level = gdps.req("downloadGJLevel.php", params={"levelID": level_id})
+  level = gdps.req("downloadGJLevel19.php", params={"levelID": level_id})
   if not level:
     print(f"Could not find level {level_id}, maybe you mistyped the ID.")
     return ask_level()
