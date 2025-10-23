@@ -1,4 +1,4 @@
-# fancy 1.9 level reuploader (v2)
+# fancy 1.9 level reuploader (v2.17)
 
 transfers your level from 1.9 to 2.2 but with extra stuff if you want it
 
@@ -34,43 +34,46 @@ downloads for both distributions can be found [on the github releases page](http
 
 ## changelog
 
-- 3rd october 2021: fixed a bug preventing you from logging in after a failed login attempt
-- 16th may 2022 (v2): completely rewrote the script from scratch, important changes include:
+- 23 october 2025 (v2.17):
+    - changed gdps server link and level download link so that it works again
+    - changed name from ssolsta to solstacoded
+    - every sensible changelog is in reverse chronological order. i had it in chronological order. why did i do that
+- 14 october 2024 (v2.16):
+    - altered 2.2 endpoints to use the new `gjp2` (as of recently this is now required)
+    - changed both 1.9 and 2.2 endpoints to use https (sending plaintext passwords over unencrypted http is not good)
+    - updated text to read "2.2" instead of "2.1"
+    - removed temporary warning from layer fixing
+- 28 november 2023 (v2.15):
+	- added password asterisk display through optional pwinput module (included in windows distribution)
+	- added temporary warning to layer fixing
+	- added detection of emergency updates
+- 26 june 2023 (v2.14):
+	- added code to automatically check for new updates on github
+- 25 june 2023 (v2.12):
+	- fixed issue with 3d layering (i wasn't making a comparison where i should have) (yes i'm pretty sure this is just reverting the change made in v2.11)
+  - had a change of heart about spaces around equals signs
+- 13 september 2022 (v2.113):
+	- cleaned up the code and attempted to make it almost pep-8 compliant (no spaces around equals signs is ugly) (and also pep-8 specifically states the line length limit can be extended to 99 characters)
+	- rewrote the glow dot merger slightly to utilise multiprocessing (much faster, only really matters for levels like right out and freedom19 with a fuckton of glow dots)
+- 25 august 2022 (v2.11):
+	- fixed issue with 3d layering (i was making a comparison where i shouldn't have)
+- 24 august 2022:
+	- created win64 executable with pyinstaller
+- 22 august 2022 (v2.1):
+	- reworked the layer fixing function to be more true to how layering actually works in 1.9
+	- renamed "colour bug fixing" to "visual bug fixing" and added glow removal to it
+- 16 may 2022 (v2): completely rewrote the script from scratch, important changes include:
 	- removed the dependency on the requests and gd.py modules
 	- made glow dot merging faster
 	- added colour bug fixing
 	- improved song changing (no longer requires a reupload song, allows you to change offset and fade in/outs)
 	- added option to upload the level as unlisted
 	- became woke
-- 22 august 2022 (v2.1):
-	- reworked the layer fixing function to be more true to how layering actually works in 1.9
-	- renamed "colour bug fixing" to "visual bug fixing" and added glow removal to it
-- 24 august 2022:
-	- created win64 executable with pyinstaller
-- 25 august 2022 (v2.11):
-	- fixed issue with 3d layering (i was making a comparison where i shouldn't have)
-- 13 september 2022 (v2.113):
-	- cleaned up the code and attempted to make it almost pep-8 compliant (no spaces around equals signs is ugly) (and also pep-8 specifically states the line length limit can be extended to 99 characters)
-	- rewrote the glow dot merger slightly to utilise multiprocessing (much faster, only really matters for levels like right out and freedom19 with a fuckton of glow dots)
-- 25 june 2023 (v2.12):
-	- fixed issue with 3d layering (i wasn't making a comparison where i should have) (yes i'm pretty sure this is just reverting the change made in v2.11)
-  - had a change of heart about spaces around equals signs
-- 26 june 2023 (v2.14):
-	- added code to automatically check for new updates on github
-- 28 november 2023 (v2.15):
-	- added password asterisk display through optional pwinput module (included in windows distribution)
-	- added temporary warning to layer fixing
-	- added detection of emergency updates
-- 14 october 2024 (v2.16):
-    - altered 2.2 endpoints to use the new `gjp2` (as of recently this is now required)
-    - changed both 1.9 and 2.2 endpoints to use https (sending plaintext passwords over unencrypted http is not good)
-    - updated text to read "2.2" instead of "2.1"
-    - removed temporary warning from layer fixing
-- 23 october 2025 (v2.17):
-    - changed gdps server link and level download link so that it works again
-    - changed name from ssolsta to solstacoded
+- 3 october 2021: fixed a bug preventing you from logging in after a failed login attempt
 
 ## future plans
+
+lmao i'm never doing any of this. if anyone wants to do this feel free to fork. keeping the list here because i feel like it
 
 - add support for .gmd (input and output)
 - maybe: add hitbox fixing
