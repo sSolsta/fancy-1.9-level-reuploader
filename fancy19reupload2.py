@@ -1,9 +1,9 @@
-"""fancy 1.9 reuploader v2.15
+"""fancy 1.9 reuploader v2.17
 
 lets you reupload 1.9 levels to 2.1
 with extra stuff if you want it
 
-created by ssolsta 2021-2023
+created by solstacoded 2021-2025
 more info: https://github.com/sSolsta/fancy-1.9-level-reuploader/
 """
 
@@ -17,10 +17,10 @@ from lib.github import github_request, RELEASE_LINK
 from lib.askpass import askpass
 from urllib.error import HTTPError
 
-VERSION_TAG = "v2.16"
+MY_NAME = "solstacoded"
+VERSION_TAG = "v2.17"
 
-# nettik.co.uk doesn't support https, absolllute.com does
-gdps = gjservers.Server("https://absolllute.com/gdps/gdapi/", name = "1.9")
+gdps = gjservers.Server("https://19gdps.com/gdapi/", name = "1.9")
 mainGD = gjservers.Server("https://www.boomlings.com/database/", name = "2.2")
 
 # setting the infos i use in ask_yn as constants here bc it looks
@@ -71,7 +71,7 @@ def ask_level():
     oftype = int,
     )
   
-  level = gdps.req("downloadGJLevel.php", params={"levelID": level_id})
+  level = gdps.req("downloadGJLevel19.php", params={"levelID": level_id})
   if not level:
     print(f"Could not find level {level_id}, maybe you mistyped the ID.")
     return ask_level()
@@ -252,7 +252,7 @@ def check_for_update(silent=False):
 def main():
   """main function"""
   print(f"=== Fancy 1.9 Level Reuploader {VERSION_TAG} ===")
-  print("Created by sSolsta")
+  print(f"Created by {MY_NAME}")
   # check for latest version
   
   # if ask_yn("Would you like to check for updates?"):
@@ -332,7 +332,7 @@ if __name__ == "__main__":
   except Exception:
     print()
     print("An unexpected error occurred")
-    print("Please show the error below to sSolsta so that she can fix the issue")
+    print(f"Please show the error below to {MY_NAME} so that she can fix the issue")
     print()
     traceback.print_exc()
     input()
