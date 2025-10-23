@@ -2,7 +2,7 @@
 
 transfers your level from 1.9 to 2.2 but with extra stuff if you want it
 
-created by ssolsta
+created by solstacoded (formerly ssolsta)
 
 ## features:
 
@@ -41,7 +41,7 @@ downloads for both distributions can be found [on the github releases page](http
 	- added colour bug fixing
 	- improved song changing (no longer requires a reupload song, allows you to change offset and fade in/outs)
 	- added option to upload the level as unlisted
-	- changed pronoun in unexpected error message from 'he' to 'she'
+	- became woke
 - 22 august 2022 (v2.1):
 	- reworked the layer fixing function to be more true to how layering actually works in 1.9
 	- renamed "colour bug fixing" to "visual bug fixing" and added glow removal to it
@@ -66,7 +66,9 @@ downloads for both distributions can be found [on the github releases page](http
     - changed both 1.9 and 2.2 endpoints to use https (sending plaintext passwords over unencrypted http is not good)
     - updated text to read "2.2" instead of "2.1"
     - removed temporary warning from layer fixing
-    
+- 23 october 2025 (v2.17):
+    - changed gdps server link and level download link so that it works again
+    - changed name from ssolsta to solstacoded
 
 ## future plans
 
