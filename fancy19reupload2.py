@@ -269,21 +269,6 @@ def main():
   level = ask_level()
   gj_login(gdps, player_id=level.uploader_player_id)
   login_info = gj_login(mainGD)
-  #delete 
-  level.unpack()
-  base = level.objects[0]
-  from lib.objinfo import obj_info
-  from copy import deepcopy
-  level.objects = []
-  for id, data in obj_info.items():
-    if data["defaultCol"] == 0:
-      continue
-    obj = deepcopy(base)
-    obj.id = id
-    obj.x = int(obj.x) + int(id)*30
-    obj.colour = 9
-    level.objects.append(obj)
-    
   # level processing options
   if ask_yn("Fix layers?", info=LAYER_FIX_INFO):
     print("Fixing layers...")
