@@ -252,7 +252,6 @@ class GJObject(StrDict):
         self[21] = 1011
       # remove 1.9 colour channel id so it doesn't interfere
       self.pop(19, None)
-      print(str(self))
   
   def init_glow_corner_values(self):
     """initialises corner values for glow dot merging"""
