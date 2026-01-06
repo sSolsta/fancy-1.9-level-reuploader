@@ -1,4 +1,4 @@
-# fancy 1.9 level reuploader (v2.17)
+# fancy 1.9 level reuploader (v2.18)
 
 transfers your level from 1.9 to 2.2 but with extra stuff if you want it
 
@@ -23,7 +23,7 @@ created by solstacoded (formerly ssolsta)
 - a 64-bit version of windows (only tested with windows 10, no guarantee it will work on any earlier versions)
 
 ## downloads
-downloads for both distributions can be found [on the github releases page](https://github.com/sSolsta/fancy-1.9-level-reuploader/releases/latest)
+downloads for both distributions can be found [on the github releases page](https://github.com/solstacoded/fancy-1.9-level-reuploader/releases/latest)
 
 ## instructions
 
