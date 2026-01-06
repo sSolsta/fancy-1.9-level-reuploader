@@ -1,9 +1,9 @@
-"""fancy 1.9 reuploader v2.17
+"""fancy 1.9 reuploader v2.18
 
-lets you reupload 1.9 levels to 2.1
+lets you reupload 1.9 levels to 2.2
 with extra stuff if you want it
 
-created by solstacoded 2021-2025
+created by solstacoded 2021-2026
 more info: https://github.com/sSolsta/fancy-1.9-level-reuploader/
 """
 
@@ -18,7 +18,7 @@ from lib.askpass import askpass
 from urllib.error import HTTPError
 
 MY_NAME = "solstacoded"
-VERSION_TAG = "v2.17"
+VERSION_TAG = "v2.18"
 
 gdps = gjservers.Server("https://19gdps.com/gdapi/", name = "1.9")
 mainGD = gjservers.Server("https://www.boomlings.com/database/", name = "2.2")
@@ -37,11 +37,15 @@ GLOW_DOT_INFO = (
   "This finds and replaces glow dots (4 glow corners around a single point) with the 2.1 glow "
   "dot object, reducing the object count. May take upwards of 10 seconds on high object levels"
   )
+WHITE_FIX_INFO = (
+  "PolzHax uses an unused colour ID to set objects to white, which 2.2 does not understand. "
+  "This option manually sets these objects to the 2.1 white channel"
+  )
+# lol this is never getting implemented
 HITBOX_FIX_INFO = (
   "Some objects have different hitboxes between 2.2 and 1.9. This option uses invisible "
   "objects to make the hitboxes in 2.2 match what they are in 1.9"
   )
-
 
 def ask_yn(question, *, info=None, blank_line=True):
   """asks a yes or no question, and returns the result as a bool"""
@@ -265,6 +269,21 @@ def main():
   level = ask_level()
   gj_login(gdps, player_id=level.uploader_player_id)
   login_info = gj_login(mainGD)
+  #delete 
+  level.unpack()
+  base = level.objects[0]
+  from lib.objinfo import obj_info
+  from copy import deepcopy
+  level.objects = []
+  for id, data in obj_info.items():
+    if data["defaultCol"] == 0:
+      continue
+    obj = deepcopy(base)
+    obj.id = id
+    obj.x = int(obj.x) + int(id)*30
+    obj.colour = 9
+    level.objects.append(obj)
+    
   # level processing options
   if ask_yn("Fix layers?", info=LAYER_FIX_INFO):
     print("Fixing layers...")
@@ -287,6 +306,14 @@ def main():
       blank_line=False,
       )
     level.objects = glowdotmerger.the_fuckening(level.objects, enable_multi=enable_multi)
+  
+  if ask_yn("Fix white channel?", info=WHITE_FIX_INFO):
+    print("Fixing white channel...")
+    level.unpack()
+    for obj in level.objects:
+      obj.polz_white_fix()
+    print("White channel fixed")
+  
   # change song
   if ask_yn("Change the song? (Only allows for newgrounds songs and not main level songs)"):
     song_id = ask_val(

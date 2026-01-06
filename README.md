@@ -34,6 +34,9 @@ downloads for both distributions can be found [on the github releases page](http
 
 ## changelog
 
+- 6 january 2026 (v2.18):
+    - added fix for polzhax white channel
+    - changed github endpoint in preparation for username change
 - 23 october 2025 (v2.17):
     - changed gdps server link and level download link so that it works again
     - changed name from ssolsta to solstacoded
