@@ -237,7 +237,7 @@ class GJObject(StrDict):
       self.disable_glow = True
   
   def is_white(self):
-    return self.get(22, None) == 1011 or self.colour not in \
+    return self.get(21, self.get(22, None)) == 1011 or self.colour not in \
         {0, 1, 2, 3, 4, 5, 6, 7, 8}
   
   def polz_white_fix(self):
